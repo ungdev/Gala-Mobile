@@ -1,0 +1,8 @@
+{
+  "name": "AppGala",
+  "app_id": "cb905f52",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
