@@ -6,6 +6,27 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="card-background-page">
+	<button (click)="launchSpectacle();" no-padding>
+	  <ion-card>
+	    <img src="assets/imgs/spectacle.jpg"/>
+	    <div class="card-title">Spectacle</div>
+	    <div class="card-subtitle">21h00 - M500</div>
+	  </ion-card>
+	</button>
+	<button (click)="launchFireworks();" no-padding>
+	  <ion-card>
+	    <img src="assets/imgs/fireworks.jpeg"/>
+	    <div class="card-title">Feu d'artfice</div>
+	    <div class="card-subtitle">Minuit - Amphithéatre de verdure</div>
+	  </ion-card>
+	</button>
+	<button (click)="launchDaft();" no-padding>
+	  <ion-card>
+	    <img src="assets/imgs/daft_punk.jpg"/>
+	    <div class="card-title">Daft Punk</div>
+	    <div class="card-subtitle">3h00 - Chapiteau</div>
+	  </ion-card>
+	</button>	
 
 </ion-content>

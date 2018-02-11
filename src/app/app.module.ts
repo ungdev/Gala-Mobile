@@ -8,6 +8,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { EventPage } from '../pages/event/event';
 import { TabsPage } from '../pages/tabs/tabs';
+import { EventDetailsPage } from '../pages/event/event_details';
 
 import { CountDownComponent } from '../pages/final_countdown/countdown';
 
@@ -23,6 +24,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ContactPage,
     HomePage,
     EventPage,
+    EventDetailsPage,
     CountDownComponent,
     TabsPage
   ],
@@ -37,6 +39,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ContactPage,
     HomePage,
     EventPage,
+    EventDetailsPage,
     TabsPage
   ],
   providers: [
