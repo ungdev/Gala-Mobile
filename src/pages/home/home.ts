@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { CountDownComponent } from '../final_countdown/countdown';
  
@@ -14,7 +13,7 @@ export class HomePage {
   appName = 'App Gala';
   public date;
  
-  constructor(private navController: NavController) { 
+  constructor() { 
   }
 
   ionViewDidLoad(){
