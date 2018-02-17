@@ -8,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'event_details.html'
 })
 export class EventDetailsPage{
-  public title:any
+  public id:number
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -16,7 +16,7 @@ export class EventDetailsPage{
 
 
   ionViewDidLoad() {
-  	 this.title = this.navParams.get('title');
+  	 this.id = this.navParams.get('id');
   }
 
 

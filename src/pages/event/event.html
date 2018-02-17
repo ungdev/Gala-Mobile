@@ -1,33 +1,135 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title no-padding>
     	<ion-icon name="star"></ion-icon>
-      Evenements
+      	Evenements {{count}}
     </ion-title>
   </ion-navbar>
+  <ion-segment [(ngModel)]="events" (ionChange)="ionSelect()" color="primary" no-padding>
+      <ion-segment-button value="music">
+        <ion-icon name="musical-notes"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="food">
+        <ion-icon name="pizza"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="bus">
+        <ion-icon name="bus"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
 </ion-header>
 
 <ion-content class="card-background-page">
-	<button (click)="launchSpectacle();" no-padding>
-	  <ion-card>
-	    <img src="assets/imgs/spectacle.jpg"/>
-	    <div class="card-title">Spectacle</div>
-	    <div class="card-subtitle">21h00 - M500</div>
-	  </ion-card>
-	</button>
-	<button (click)="launchFireworks();" no-padding>
-	  <ion-card>
-	    <img src="assets/imgs/fireworks.jpeg"/>
-	    <div class="card-title">Feu d'artfice</div>
-	    <div class="card-subtitle">Minuit - Amphithéatre de verdure</div>
-	  </ion-card>
-	</button>
-	<button (click)="launchDaft();" no-padding>
-	  <ion-card>
-	    <img src="assets/imgs/daft_punk.jpg"/>
-	    <div class="card-title">Daft Punk</div>
-	    <div class="card-subtitle">3h00 - Chapiteau</div>
-	  </ion-card>
-	</button>	
+	<div *ngIf="musicVisible">
+		<button class="button" (click)="goToDetails(1);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/spectacle.jpg"/>
+		    <div class="card-title">Spectacle</div>
+		    <div class="card-subtitle">22h00 - M500</div>
+		  </ion-card>
+		</button>
+		<button class="button" (click)="goToDetails(2);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/slash.jpg"/>
+		    <div class="card-title">Artiste Rock 1</div>
+		    <div class="card-subtitle">22h30 - Scène Rock</div>
+		  </ion-card>
+		</button>
+		<button class="button" (click)="goToDetails(3);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/slash.jpg"/>
+		    <div class="card-title">Artiste Rock 2</div>
+		    <div class="card-subtitle">23h15 - Scène Rock</div>
+		  </ion-card>
+		</button>
+		<button class="button" (click)="goToDetails(4);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/fireworks.jpeg"/>
+		    <div class="card-title">Feu d'artfice</div>
+		    <div class="card-subtitle">Minuit - Amphithéatre de verdure</div>
+		  </ion-card>
+		</button>
+		<button class="button" (click)="goToDetails(5);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/daft_punk.jpg"/>
+		    <div class="card-title">Artiste Random 1</div>
+		    <div class="card-subtitle">0h30 - Chapiteau</div>
+		  </ion-card>
+		</button>	
+		<button class="button" (click)="goToDetails(6);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/slash.jpg"/>
+		    <div class="card-title">Artiste Rock 3</div>
+		    <div class="card-subtitle">0h30 - Scène Rock</div>
+		  </ion-card>
+		</button>
+		<button class="button" (click)="goToDetails(7);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/daft_punk.jpg"/>
+		    <div class="card-title">Artiste Random 2</div>
+		    <div class="card-subtitle">1h30 - Chapiteau</div>
+		  </ion-card>
+		</button>	
+		<button class="button" (click)="goToDetails(8);" no-padding>
+		  <ion-card>
+		    <img src="assets/imgs/daft_punk.jpg"/>
+		    <div class="card-title">Daft Punk</div>
+		    <div class="card-subtitle">3h00 - Chapiteau</div>
+		  </ion-card>
+		</button>	
+	</div>
+
+	<div *ngIf="foodVisible">
+		Salut c la bouffe
+	</div>
+
+	<div *ngIf="busVisible">
+		<ion-list>
+			<ion-list-header color="header">
+        		Navettes centre ville - UTT
+      		</ion-list-header>
+      		<ion-item *ngFor="let schedule of schedulesCU">
+    			<ion-label item-start>{{schedule.time}}</ion-label>
+			    <ion-label item-center class="smaller"> dans {{schedule.remaining}} mn</ion-label>
+			    <button item-end class="bell" color="dark">
+				    <ion-icon *ngIf="!schedule.notification" name="notifications-off" color="arrow"></ion-icon>
+				    <ion-icon *ngIf="schedule.notification" name="notifications" color="arrow"></ion-icon>
+			    </button>
+  			</ion-item>
+      		<ion-list-header color="header">
+        		Navettes UTT - centre ville
+      		</ion-list-header>
+      		<ion-item>
+			    01h00
+      		</ion-item>
+      		<ion-item>
+        		01h30
+      		</ion-item>
+      		<ion-item>
+        		02h00
+      		</ion-item>
+      		<ion-item>
+        		02h30
+      		</ion-item>
+      		<ion-item>
+        		03h00
+      		</ion-item>
+      		<ion-item>
+        		03h30
+      		</ion-item>
+      		<ion-item>
+        		04h00
+      		</ion-item>
+      		<ion-item>
+        		04h30
+      		</ion-item>
+      		<ion-item>
+        		05h00
+      		</ion-item>
+      		<ion-item>
+        		05h30
+      		</ion-item>
+		</ion-list>
+	</div>
+
 
 </ion-content>

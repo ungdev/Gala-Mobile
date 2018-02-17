@@ -17,7 +17,6 @@ export class HomePage {
   }
 
   ionViewDidLoad(){
-  		this.date = 'coucou'
   }
  
   ngOnInit() {

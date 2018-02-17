@@ -86,4 +86,13 @@
     <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.2.4">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBwtb6FSvH_e15kYo78BZ-i2veQJgtIaXI" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBwtb6FSvH_e15kYo78BZ-i2veQJgtIaXI" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+    </plugin>
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Pour aider la gestion des flux humains lors de l'événement, et donc améliorer la sécurité" />
+    </plugin>
 </widget>

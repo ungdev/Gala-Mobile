@@ -46,8 +46,14 @@ $colors: (
   header: (
   	base: #191919,
   	contrast: #ffffff
-  	)
+  	),
+  arrow: (
+    base: #ffffff,
+    contrast: #000000
+    )
 );
+
+$item-ios-detail-push-color: color($colors, arrow);
 
 
 // App iOS Variables
