@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { Geolocation } from '@ionic-native/geolocation';
 
  
 @Component({
@@ -19,7 +18,7 @@ export class CountDownComponent {
     public long;
     public alt;
 
-    constructor(private geolocation: Geolocation) {
+    constructor() {
     }
  
     ngOnInit() {
@@ -41,14 +40,6 @@ export class CountDownComponent {
         else {
                 //this.timer.hasFinished = true;
         }
-
-        this.geolocation.getCurrentPosition().then((resp) => {
-         this.lat = resp.coords.latitude
-         this.long = resp.coords.longitude
-         this.alt = resp.coords.altitude
-        }).catch((error) => {
-          console.log('Error getting location', error);
-        });
     }
  
     initCountDown() {
