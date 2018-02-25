@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { EventPage } from '../pages/event/event';
 import { TabsPage } from '../pages/tabs/tabs';
 import { EventDetailsPage } from '../pages/event/event_details';
+import { GMapPage } from '../pages/gmap/gmap';
 
 import { CountDownComponent } from '../pages/final_countdown/countdown';
 
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Geolocation } from '@ionic-native/geolocation';
+//import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     EventPage,
     EventDetailsPage,
+    GMapPage,
     CountDownComponent,
     TabsPage
   ],
@@ -41,12 +44,14 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     EventPage,
     EventDetailsPage,
+    GMapPage,
     TabsPage
   ],
   providers: [
     StatusBar,
     LocalNotifications, 
     Geolocation,
+    //GoogleMaps,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

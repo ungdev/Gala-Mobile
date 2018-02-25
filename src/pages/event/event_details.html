@@ -1,16 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{id}}
+      {{title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
-  <ion-card>
-    <img src="assets/imgs/spectacle.jpg"/>
-    <div class="card-title">Spectacle</div>
-    <div class="card-subtitle">21h00 - M500</div>
+<ion-content class="details">
+  <img class="img" src="assets/imgs/{{img}}.jpg"/>
+  <div class="title">{{title}}</div>
+  <div class="start">Début à {{start}}</div>
+  <div class="end">Fin à {{end}}</div>
+  <div class="room">Lieu : {{room}}</div>
+  <ion-card class="card">
+    <ion-card-content class="text">
+      {{text}}
+    </ion-card-content>
   </ion-card>
 
 </ion-content>
