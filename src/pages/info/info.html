@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+  		<ion-icon name="information-circle"></ion-icon>
+      Informations
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-list no-border>
+      <ion-list-header color="header">
+        Accès
+      </ion-list-header>
+  		<ion-item>
+        <ion-icon name="man" item-start></ion-icon>
+            Interdit aux moins de 18 ans
+      </ion-item>
+      <ion-item>
+        <ion-icon name="bowtie" item-start></ion-icon>
+            Tenue de soirée obligatoire
+      </ion-item>
+      <ion-item>
+      <ion-icon name="beer" item-start></ion-icon>
+            Etat convenable exigé
+      </ion-item>
+      <ion-list-header color="header">
+        Adresse
+      </ion-list-header>
+
+      <button (click)="click()" ion-item>
+        <ion-icon name="pin" item-start></ion-icon>
+            12 rue Marie curie, Troyes
+      </button>
+
+      <ion-list-header color="header">
+        Date
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+            2 Juin 2018 - 20h
+      </ion-item>
+      <ion-list-header color="header">
+        Entrée du Gala
+      </ion-list-header>
+      <ion-item>
+            Ouverture à 21h
+      </ion-item>
+      <ion-item class="small">
+            Fermeture temporaire de 23h45 à 00h30
+      </ion-item>
+      <ion-item>
+            Fermeture définitive à 1h
+      </ion-item>
+	</ion-list>
+
+</ion-content>
