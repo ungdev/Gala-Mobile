@@ -20,7 +20,7 @@
 
 <ion-content class="card-background-page">
 	<div *ngIf="musicVisible">
-	    <button *ngFor="let event of fevents | async" class="button" (click)="goToDetails(event);" no-padding>
+	    <button *ngFor="let event of fevents" class="button" (click)="goToDetails(event);" no-padding>
 		  <ion-card>
 		    <img src={{event.Img}}/>
 		    <div class="card-title">{{event.Title}}</div>

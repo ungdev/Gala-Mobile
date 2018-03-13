@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EventDetailsPage } from './event_details';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { HTTP } from '@ionic-native/http';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/timeout';
  
 
 
@@ -22,8 +23,21 @@ export class EventPage {
   public schedulesUC: any
   public fevents: any;
 
-  constructor(public navCtrl: NavController, private http: HTTP, private localNotifications : LocalNotifications, afDatabase: AngularFireDatabase) {
-    this.fevents = afDatabase.list('/events').valueChanges();
+  constructor(public navCtrl: NavController, public http: Http, private localNotifications : LocalNotifications) {
+    let path = 'http://192.168.1.80:8080';
+    let encodedPath = encodeURI(path);
+    let timeoutMS = 10000;
+
+    this.http.get(encodedPath)
+        .timeout(timeoutMS)
+        .map(res => res.json()).subscribe(data => {
+            this.fevents = data
+            console.log(data);
+        },
+        err => {
+            console.log('error HTTP');
+        });
+    //this.fevents = afDatabase.list('/events').valueChanges();
     this.events = "music"
     this.showMusic()
     this.schedulesCU=[
@@ -78,23 +92,10 @@ export class EventPage {
   }*/
 
   goToDetails(args:any){
-    console.log(args)
     this.navCtrl.push(EventDetailsPage, {arg:args})
-    this.http.get('http://localhost:8080', {}, {})
-  .then(data => {
 
-    console.log(data.status);
-    console.log(data.data); // data received by server
-    console.log(data.headers);
+        
 
-  })
-  .catch(error => {
-
-    console.log(error.status);
-    console.log(error.error); // error message as string
-    console.log(error.headers);
-
-  });
   }
 
   showMusic(){

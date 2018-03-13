@@ -18,10 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Geolocation } from '@ionic-native/geolocation';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { GoogleMaps } from '@ionic-native/google-maps';
-import {HTTP} from '@ionic-native/http'
+import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 export const firebaseConfig = {
@@ -48,8 +46,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +63,6 @@ export const firebaseConfig = {
     StatusBar,
     LocalNotifications, 
     Geolocation,
-    HTTP,
     InAppBrowser,
     //GoogleMaps,
     SplashScreen,
