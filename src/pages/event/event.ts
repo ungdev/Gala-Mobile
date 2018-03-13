@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EventDetailsPage } from './event_details';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { HTTP } from '@ionic-native/http';
  
 
 
@@ -18,8 +20,10 @@ export class EventPage {
   public busVisible: boolean
   public schedulesCU: any
   public schedulesUC: any
+  public fevents: any;
 
-  constructor(public navCtrl: NavController, private localNotifications : LocalNotifications) {
+  constructor(public navCtrl: NavController, private http: HTTP, private localNotifications : LocalNotifications, afDatabase: AngularFireDatabase) {
+    this.fevents = afDatabase.list('/events').valueChanges();
     this.events = "music"
     this.showMusic()
     this.schedulesCU=[
@@ -73,8 +77,24 @@ export class EventPage {
       });
   }*/
 
-  goToDetails(id:number){
-    this.navCtrl.push(EventDetailsPage, {'id':id})
+  goToDetails(args:any){
+    console.log(args)
+    this.navCtrl.push(EventDetailsPage, {arg:args})
+    this.http.get('http://localhost:8080', {}, {})
+  .then(data => {
+
+    console.log(data.status);
+    console.log(data.data); // data received by server
+    console.log(data.headers);
+
+  })
+  .catch(error => {
+
+    console.log(error.status);
+    console.log(error.error); // error message as string
+    console.log(error.headers);
+
+  });
   }
 
   showMusic(){

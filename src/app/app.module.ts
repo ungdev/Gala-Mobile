@@ -18,7 +18,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { GoogleMaps } from '@ionic-native/google-maps';
+import {HTTP} from '@ionic-native/http'
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyD-6vmOdXUqM9nbVE4fC9QvJiQ0E-OfgMc",
+  authDomain: "gala-ios-195623.firebaseapp.com",
+  databaseURL: "https://gala-ios-195623.firebaseio.com",
+  projectId: "gala-ios-195623",
+  storageBucket: "gala-ios-195623.appspot.com",
+  messagingSenderId: "223623672853"
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +47,9 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +66,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     LocalNotifications, 
     Geolocation,
+    HTTP,
+    InAppBrowser,
     //GoogleMaps,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

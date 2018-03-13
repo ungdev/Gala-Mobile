@@ -20,62 +20,13 @@
 
 <ion-content class="card-background-page">
 	<div *ngIf="musicVisible">
-		<button class="button" (click)="goToDetails(1);" no-padding>
+	    <button *ngFor="let event of fevents | async" class="button" (click)="goToDetails(event);" no-padding>
 		  <ion-card>
-		    <img src="assets/imgs/spectacle.jpg"/>
-		    <div class="card-title">Spectacle</div>
-		    <div class="card-subtitle">22h00 - M500</div>
+		    <img src={{event.Img}}/>
+		    <div class="card-title">{{event.Title}}</div>
+		    <div class="card-subtitle">{{event.Start}} - {{event.Room}}</div>
 		  </ion-card>
 		</button>
-		<button class="button" (click)="goToDetails(2);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/slash.jpg"/>
-		    <div class="card-title">Artiste Rock 1</div>
-		    <div class="card-subtitle">22h30 - Scène Rock</div>
-		  </ion-card>
-		</button>
-		<button class="button" (click)="goToDetails(3);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/slash.jpg"/>
-		    <div class="card-title">Artiste Rock 2</div>
-		    <div class="card-subtitle">23h15 - Scène Rock</div>
-		  </ion-card>
-		</button>
-		<button class="button" (click)="goToDetails(4);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/fireworks.jpeg"/>
-		    <div class="card-title">Feu d'artfice</div>
-		    <div class="card-subtitle">Minuit - Amphithéatre de verdure</div>
-		  </ion-card>
-		</button>
-		<button class="button" (click)="goToDetails(5);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/daft_punk.jpg"/>
-		    <div class="card-title">Artiste Random 1</div>
-		    <div class="card-subtitle">0h30 - Chapiteau</div>
-		  </ion-card>
-		</button>	
-		<button class="button" (click)="goToDetails(6);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/slash.jpg"/>
-		    <div class="card-title">Artiste Rock 3</div>
-		    <div class="card-subtitle">0h30 - Scène Rock</div>
-		  </ion-card>
-		</button>
-		<button class="button" (click)="goToDetails(7);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/daft_punk.jpg"/>
-		    <div class="card-title">Artiste Random 2</div>
-		    <div class="card-subtitle">1h30 - Chapiteau</div>
-		  </ion-card>
-		</button>	
-		<button class="button" (click)="goToDetails(8);" no-padding>
-		  <ion-card>
-		    <img src="assets/imgs/daft_punk.jpg"/>
-		    <div class="card-title">Daft Punk</div>
-		    <div class="card-subtitle">3h00 - Chapiteau</div>
-		  </ion-card>
-		</button>	
 	</div>
 
 	<div *ngIf="foodVisible">
@@ -104,9 +55,9 @@
       		<ion-item *ngFor="let schedule of schedulesCU">
     			<ion-label item-start>{{schedule.time}}</ion-label>
 			    <ion-label item-center class="smaller"> dans {{schedule.remaining}} mn</ion-label>
-			    <button item-end class="bell" color="dark">
-				    <ion-icon *ngIf="!schedule.notification" name="notifications-off" color="arrow"></ion-icon>
-				    <ion-icon *ngIf="schedule.notification" name="notifications" color="arrow"></ion-icon>
+			    <button item-end ion-button (click)="bellClicked(schedule);" color="arrow">
+				    <ion-icon *ngIf="!schedule.notification" name="notifications-off" color="arrow" item-end></ion-icon>
+				    <ion-icon *ngIf="schedule.notification" name="notifications" color="arrow" item-end></ion-icon>
 			    </button>
   			</ion-item>
       		<ion-list-header color="header">
