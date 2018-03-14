@@ -21,6 +21,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 //import { GoogleMaps } from '@ionic-native/google-maps';
 import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD-6vmOdXUqM9nbVE4fC9QvJiQ0E-OfgMc",
@@ -46,6 +48,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule
   ],
   bootstrap: [IonicApp],

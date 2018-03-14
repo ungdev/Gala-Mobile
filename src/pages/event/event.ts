@@ -5,7 +5,7 @@ import { EventDetailsPage } from './event_details';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
- 
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -22,22 +22,14 @@ export class EventPage {
   public schedulesCU: any
   public schedulesUC: any
   public fevents: any;
+  public path: string;
+  public timeoutMS: number;
 
-  constructor(public navCtrl: NavController, public http: Http, private localNotifications : LocalNotifications) {
-    let path = 'http://192.168.1.80:8080';
-    let encodedPath = encodeURI(path);
-    let timeoutMS = 10000;
-
-    this.http.get(encodedPath)
-        .timeout(timeoutMS)
-        .map(res => res.json()).subscribe(data => {
-            this.fevents = data
-            console.log(data);
-        },
-        err => {
-            console.log('error HTTP');
-        });
-    //this.fevents = afDatabase.list('/events').valueChanges();
+  constructor(public navCtrl: NavController, public http: Http, private localNotifications : LocalNotifications, private storage : Storage) {
+    this.path = 'http://192.168.1.80:8080';
+    this.timeoutMS = 10000;
+    this.fevents = {}
+    this.contactServeur();
     this.events = "music"
     this.showMusic()
     this.schedulesCU=[
@@ -77,6 +69,40 @@ export class EventPage {
       });
   }
 
+  doRefresh(refresher){
+    console.log('begin refresh')
+    
+    this.contactServeur()
+    refresher.complete();
+    console.log('end refresh')
+  }
+
+  contactServeur(){
+    let encodedPath = encodeURI(this.path);
+    this.http.get(encodedPath)
+        .timeout(this.timeoutMS)
+        .map(res => res.json()).subscribe(data => {
+            this.fevents = data
+            console.log('data from server :')
+            console.log(data);
+
+            this.storage.clear()
+            this.storage.set('events', data)
+
+        },
+        err => {
+            this.storage.get('events').then((val)=>{
+              this.fevents = val;
+              console.log(val)
+            });
+            this.fevents = {}
+            console.log('data from memory :')
+            console.log(this.fevents)
+            console.log('error HTTP');
+        });
+
+  }
+
   /*ionViewDidLoad() {
   	  this.localNotifications.schedule({
   	 		id: 3,
@@ -96,6 +122,14 @@ export class EventPage {
 
         
 
+  }
+
+  isEmpty(obj){
+    if(typeof obj === 'object' && obj !== null){
+      if(Object.keys(obj).length === 0)
+        return true;
+    }
+    return false;;
   }
 
   showMusic(){

@@ -2,44 +2,46 @@ page-event{
 	.card-background-page {
 
   	ion-card {
-    position: relative;
-    text-align: center;
-  }
-  .button{
-  	width: 100%;
-    position: relative;
-    text-align: center;    
-  }
+      position: relative;
+      text-align: center;
+    }
+    .button{
+    	width: 100%;
+      position: relative;
+      text-align: center;    
+    }
 
-  .card-title {
-    position: absolute;
-    top: 20%;
-    font-size: 3.5em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-  }
+    .card-title {
+      position: absolute;
+      top: 20%;
+      font-size: 3.5em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
 
-  .card-subtitle {
-    font-size: 2.0em;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    color: #fff;
+    .card-subtitle {
+      font-size: 2.0em;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      color: #fff;
+    }
+    .smaller{
+      font-size: 15px;
+      color: #A9A9A9;
+    }
+    ion-list:not(:last-child){
+      border-bottom: 1px solid #E8E8E8;
+    }
+    .bell{
+      text-align: right;
+      width:20%;  
+      font-size: 20px;
+      color: #000000;
+    }
+    .refresh{
+      color: #555555;
+    }
   }
-  .smaller{
-    font-size: 15px;
-    color: #A9A9A9;
-  }
-  ion-list:not(:last-child){
-    border-bottom: 1px solid #E8E8E8;
-  }
-  .bell{
-    text-align: right;
-    width:20%;  
-    font-size: 20px;
-    color: #000000;
-  }
-
-}
 }

@@ -27,6 +27,6 @@ export class HomePage {
  
 
   goToBilleterie(){
-    const browser = this.iab.create('http://billetterie.gala.utt.fr', '_system', {});
+    this.iab.create('http://billetterie.gala.utt.fr', '_system', {});
   }
 }
