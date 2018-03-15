@@ -8,6 +8,10 @@ import 'rxjs/add/operator/timeout';
 import { Storage } from '@ionic/storage';
 
 
+import { InfoPage } from '../info/info';
+import { PlanPage } from '../plan/plan';
+
+
 @Component({
   selector: 'page-event',
   templateUrl: 'event.html'
@@ -19,54 +23,35 @@ export class EventPage {
   public musicVisible: boolean
   public foodVisible: boolean
   public busVisible: boolean
-  public schedulesCU: any
-  public schedulesUC: any
   public fevents: any;
   public path: string;
   public timeoutMS: number;
 
   constructor(public navCtrl: NavController, public http: Http, private localNotifications : LocalNotifications, private storage : Storage) {
-    this.path = 'http://192.168.1.80:8080';
+    this.path = 'https://api.gala.uttnetgroup.fr';
     this.timeoutMS = 10000;
     this.fevents = {}
     this.contactServeur();
     this.events = "music"
     this.showMusic()
-    this.schedulesCU=[
-    {id:0,time:"21h00", remaining:"15", notification:true},
-    {id:1,time:"21h30", remaining:"45", notification:false},
-    {id:2,time:"22h00", remaining:"1 h 15", notification:false},
-    {id:3,time:"22h30", remaining:"1 h 45", notification:false},
-    {id:4,time:"23h00", remaining:"2 h 15", notification:false},
-    {id:5,time:"23h30", remaining:"2 h 45", notification:false},
-    {id:5,time:"00h00", remaining:"3 h 15", notification:false},
-    {id:7,time:"00h30", remaining:"3 h 45", notification:false}]
-    this.schedulesUC=[
-    {time:"01h00", remaining:"15 mn", notification:true},
-    {time:"01h30", remaining:"45 mn", notification:false},
-    {time:"02h00", remaining:"1 h 15 mn", notification:false},
-    {time:"02h30", remaining:"1 h 45 mn", notification:false},
-    {time:"03h00", remaining:"2 h 15 mn", notification:true},
-    {time:"03h30", remaining:"2 h 45 mn", notification:false},
-    {time:"04h00", remaining:"3 h 15 mn", notification:false},
-    {time:"04h30", remaining:"3 h 45 mn", notification:false},
-    {time:"05h00", remaining:"3 h 45 mn", notification:false},
-    {time:"05h30", remaining:"3 h 45 mn", notification:false}]
+    console.log(new Date().getTime())
   }
 
-  setupBus(){
-    for (var i = 0; i < 8; i++) {
-      //this.schedulesCU[i].time = (21 + Math.round(i*0.5)) + "h" + ("0" + (i%2)*30).slice(-2)
-      this.schedulesCU[i].remaining = "3h 15"
-      this.schedulesCU[i].notification = this.localNotifications.isPresent(1000+i)
-    }
-  }
   notify(i){
     this.localNotifications.schedule({
         id:1000+i,
         text: 'Notification délayé de 10s',
         at: new Date(new Date().getTime() + 10000)
       });
+  }
+
+  swipeEvent(event){
+    if(event.direction == 2){
+      this.navCtrl.parent.select(3);
+    }
+    if(event.direction == 4){
+      this.navCtrl.parent.select(1);
+    }
   }
 
   doRefresh(refresher){
@@ -118,10 +103,7 @@ export class EventPage {
   }*/
 
   goToDetails(args:any){
-    this.navCtrl.push(EventDetailsPage, {arg:args})
-
-        
-
+    this.navCtrl.push(EventDetailsPage, {arg:args});
   }
 
   isEmpty(obj){
@@ -146,7 +128,6 @@ export class EventPage {
     this.musicVisible = false
     this.foodVisible = false
     this.busVisible = true
-    this.setupBus()
   }
   ionSelect(){
     if(this.events == "music"){

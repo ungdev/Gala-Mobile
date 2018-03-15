@@ -22,6 +22,11 @@ export class PlanPage {
 
   }
 
+  swipeEvent(event){
+    if(event.direction == 4){
+      this.navCtrl.parent.select(2);
+    }
+  }
 
   calcCoordinates(){
     this.geolocation.getCurrentPosition().then((resp) => {

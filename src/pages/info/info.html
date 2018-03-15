@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header  (swipe)="swipeEvent($event)">
   <ion-navbar>
     <ion-title>
   		<ion-icon name="information-circle"></ion-icon>
@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding  (swipe)="swipeEvent($event)">
 
 	<ion-list no-border>
       <ion-list-header color="header">
