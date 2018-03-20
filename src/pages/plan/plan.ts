@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import L from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation';
+import rooms from './RoomData.js';
 
 @Component({
   selector: 'page-plan',
@@ -16,10 +17,10 @@ export class PlanPage {
   	public x:number;
   	public y:number;
     public marker: L.Marker;
+    public roomData: any
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
-  	
-
+    this.roomData = {"name":"", "description":""};
   }
 
   swipeEvent(event){
@@ -29,27 +30,18 @@ export class PlanPage {
   }
 
   calcCoordinates(){
+    //console.log("getting coords")
     this.geolocation.getCurrentPosition().then((resp) => {
             this.lat = resp.coords.latitude
             this.long = resp.coords.longitude
             this.alt = resp.coords.altitude
             console.log("lat : " + this.lat + " long : " + this.long + " alt : " + this.alt)
-            //this.lat = 48.29557560
-            //this.long = 4.072781251
-            //this.lat = 48.270881 // max
-            //this.long = 4.069544 // max
-            //this.lat = 48.267489 // min
-            //this.long = 4.063907; // min
-            this.lat = 48.268991; // center
-            this.long = 4.066962; // center
-            //this.lat = 48.270034;
-            //this.long= 4.065613;
       }).catch((error) => {
             console.log('Error getting location', error);
       });
   	this.x = -488116.608 * (-0.6039772381)*(this.lat - 48.267489);
   	this.y = 177399.3259*(this.long - 4.063907);
-    console.log("(x, y) = " + this.x + ", " + this.y)
+    //console.log("(x, y) = " + this.x + ", " + this.y)
     if(this.x < 0) this.x = 0;
     if(this.y < 0) this.y = 0;
     if(this.x > 1000) this.x = 1000;
@@ -105,5 +97,44 @@ export class PlanPage {
 
   this.marker = L.marker([this.x, this.y]);
   this.marker.addTo(this.map);
+ 
+  //L.marker([50, 500]).addTo(this.map);
+  //console.log(rooms)
+  L.geoJSON(rooms, {
+    style: this.style,
+    onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
+}).addTo(this.map);
+  //layer.addData(rooms)
+
+  }
+
+  onEachFeature(feature, layer) {
+    layer.on(
+        'click', (e) => {
+          this.roomData = e.target.feature.properties;
+          console.log(e.latlng.lng + ", " + e.latlng.lat)
+        }
+    );
+  }
+ 
+  style(feature) {
+    return {
+        fillColor: '#FFEDA0',
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.1
+    };
   }
 }
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>
       <ion-icon name="pin"></ion-icon>
-      Où suis-je ? {{lat}}, {{long}}
+      Où suis-je ?
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,4 +10,11 @@
 <ion-content  (swipe)="swipeEvent($event)">
  
 	<div id="map" style="width:100%; height:50%;"></div>
+	<ion-card>
+		<ion-card-content>
+	    	<ion-label class="Title">{{roomData.name}}</ion-label>
+	    	{{roomData.description}}
+		</ion-card-content>
+		
+	</ion-card>
 </ion-content>

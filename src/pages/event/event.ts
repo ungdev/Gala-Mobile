@@ -8,10 +8,6 @@ import 'rxjs/add/operator/timeout';
 import { Storage } from '@ionic/storage';
 
 
-import { InfoPage } from '../info/info';
-import { PlanPage } from '../plan/plan';
-
-
 @Component({
   selector: 'page-event',
   templateUrl: 'event.html'
@@ -31,6 +27,10 @@ export class EventPage {
     this.path = 'https://api.gala.uttnetgroup.fr';
     this.timeoutMS = 10000;
     this.fevents = {}
+    this.storage.get('events').then((val)=>{
+        this.fevents = val;
+        console.log(val)
+    });
     this.contactServeur();
     this.events = "music"
     this.showMusic()
