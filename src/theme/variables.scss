@@ -33,6 +33,16 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+
+@font-face {
+  font-family: 'DIN';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../assets/fonts/DIN Alternate Bold.otf');
+}
+
+
+
 $bar: #300800;
 
 $colors: (
@@ -62,6 +72,11 @@ $list-background-color : #520e02;
 $refresher-icon-color : #fcf7f2;
 
 $item-ios-detail-push-color: color($colors, arrow);
+$font: "DIN";
+//$font:"roboto";
+$font-family-md-base: $font;
+$font-family-ios-base: $font;
+$font-family-wp-base: $font;
 
 
 // App iOS Variables
