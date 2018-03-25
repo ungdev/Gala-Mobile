@@ -33,27 +33,33 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+$bar: #300800;
+
 $colors: (
-  primary:    #488aff,
+  primary:    #730b02, 
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      #fcf7f2,
   dark:       #222222,
+  navbar:     $bar,
   countdown: (
-    base: #55acee,
-    contrast: #ffffff
+    base: #300800,
+    contrast: #fcf7f2
   ),
   header: (
-  	base: #191919,
-  	contrast: #ffffff
+  	base: #240600,
+  	contrast: #fcf7f2
   	),
   arrow: (
-    base: #ffffff,
+    base: #fcf7f2,
     contrast: #333333
     )
 );
 
-$refresher-icon-color : #ffffff;
+$background-color : #110302;
+$tabs-background : $bar;
+$list-background-color : #520e02;
+$refresher-icon-color : #fcf7f2;
 
 $item-ios-detail-push-color: color($colors, arrow);
 

@@ -67,25 +67,34 @@ export class EventPage {
     this.http.get(encodedPath)
         .timeout(this.timeoutMS)
         .map(res => res.json()).subscribe(data => {
-            this.fevents = data
             console.log('data from server :')
             console.log(data);
-
-            this.storage.clear()
-            this.storage.set('events', data)
-
+            if(!data.hasOwnProperty('error')){
+              console.log("Connected")
+              this.fevents = data
+              this.storage.clear()
+              this.storage.set('events', data)
+            }
+            else{
+              console.log("Not connected")
+              this.getDataFromMemory()
+            }
         },
         err => {
-            this.storage.get('events').then((val)=>{
-              this.fevents = val;
-              console.log(val)
-            });
-            this.fevents = {}
-            console.log('data from memory :')
-            console.log(this.fevents)
-            console.log('error HTTP');
+            this.getDataFromMemory()
         });
 
+  }
+
+  getDataFromMemory(){
+    this.storage.get('events').then((val)=>{
+      this.fevents = val;
+      console.log(val)
+    });
+    this.fevents = {}
+    console.log('data from memory :')
+    console.log(this.fevents)
+    console.log('error HTTP');
   }
 
   /*ionViewDidLoad() {

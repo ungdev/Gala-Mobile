@@ -2,6 +2,7 @@ page-home {
 	
 	ion-button {
     	font-size: 20px;
+    	font-weight: bold;
 	}
 	.viewpost {
 		ion-grid {
@@ -32,5 +33,6 @@ page-home {
 	}
 	.Card{
 		font-size: 20px;
+		text-align: center;
 	}
 }
