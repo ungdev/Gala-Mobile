@@ -17,6 +17,7 @@ export class CountDownComponent {
     public lat;
     public long;
     public alt;
+    public timerIsFinished;
 
     constructor() {
     }
@@ -28,6 +29,7 @@ export class CountDownComponent {
     calcRemainigTime(){
         var now = new Date().getTime()
         var date_gala = new Date("Jun 2, 2018 21:00:00").getTime()
+        //var date_gala = new Date("Mar 27, 2018 19:51:00").getTime()
         this.distance = date_gala - now
 
         this.days = Math.floor(this.distance / (1000 * 60 * 60 * 24));
@@ -35,10 +37,11 @@ export class CountDownComponent {
         this.minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000 * 60));
         this.seconds = Math.floor((this.distance % (1000 * 60)) / 1000);
         if (this.distance > 0) {
+                this.timerIsFinished = false
                 this.tick();
         }
         else {
-                //this.timer.hasFinished = true;
+                this.timerIsFinished = true
         }
     }
  

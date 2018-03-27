@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EventDetailsPage } from './event_details';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -22,8 +21,9 @@ export class EventPage {
   public fevents: any;
   public path: string;
   public timeoutMS: number;
+  public isRefreshing;
 
-  constructor(public navCtrl: NavController, public http: Http, private localNotifications : LocalNotifications, private storage : Storage) {
+  constructor(public navCtrl: NavController, public http: Http, private storage : Storage) {
     this.path = 'https://api.gala.uttnetgroup.fr';
     this.timeoutMS = 10000;
     this.fevents = {}
@@ -34,16 +34,9 @@ export class EventPage {
     this.contactServeur();
     this.events = "music"
     this.showMusic()
-    console.log(new Date().getTime())
+    this.isRefreshing = false;
   }
 
-  notify(i){
-    this.localNotifications.schedule({
-        id:1000+i,
-        text: 'Notification délayé de 10s',
-        at: new Date(new Date().getTime() + 10000)
-      });
-  }
 
   swipeEvent(event){
     if(event.direction == 2){
@@ -55,11 +48,18 @@ export class EventPage {
   }
 
   doRefresh(refresher){
+    if(this.isRefreshing){
+      return;
+    }
+
+    this.isRefreshing = true
     console.log('begin refresh')
     
     this.contactServeur()
     refresher.complete();
     console.log('end refresh')
+    this.isRefreshing = false;
+    
   }
 
   contactServeur(){
@@ -83,7 +83,6 @@ export class EventPage {
         err => {
             this.getDataFromMemory()
         });
-
   }
 
   getDataFromMemory(){
