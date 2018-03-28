@@ -24,14 +24,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
 
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyD-6vmOdXUqM9nbVE4fC9QvJiQ0E-OfgMc",
-  authDomain: "gala-ios-195623.firebaseapp.com",
-  databaseURL: "https://gala-ios-195623.firebaseio.com",
-  projectId: "gala-ios-195623",
-  storageBucket: "gala-ios-195623.appspot.com",
-  messagingSenderId: "223623672853"
-};
 
 @NgModule({
   declarations: [
