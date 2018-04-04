@@ -13,7 +13,7 @@ export class PlanPage {
   	public map: any;
   	public lat: number;
   	public long: number;
-  	public alt: number;
+  	public alt: number;f
   	public x:number;
   	public y:number;
     public marker: L.Marker;
@@ -469,9 +469,9 @@ export class PlanPage {
             this.lat = resp.coords.latitude
             this.long = resp.coords.longitude
             this.alt = resp.coords.altitude
-            console.log("lat : " + this.lat + " long : " + this.long + " alt : " + this.alt)
+            //console.log("lat : " + this.lat + " long : " + this.long + " alt : " + this.alt)
       }).catch((error) => {
-            console.log('Error getting location', error);
+            //console.log('Error getting location', error);
       });
   	this.x = -488116.608 * (-0.6039772381) * (this.lat - 48.267489);
   	this.y = 177399.3259 * (this.long - 4.063907);
@@ -546,7 +546,7 @@ export class PlanPage {
     layer.on(
         'click', (e) => {
           this.roomData = e.target.feature.properties;
-          console.log("[" + e.latlng.lng + ", " + e.latlng.lat + "]")
+          //console.log("[" + e.latlng.lng + ", " + e.latlng.lat + "]")
         }
     );
   }

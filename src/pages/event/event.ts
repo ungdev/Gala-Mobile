@@ -29,7 +29,6 @@ export class EventPage {
     this.fevents = {}
     this.storage.get('events').then((val)=>{
         this.fevents = val;
-        console.log(val)
     });
     this.contactServeur();
     this.events = "music"
@@ -53,11 +52,9 @@ export class EventPage {
     }
 
     this.isRefreshing = true
-    console.log('begin refresh')
     
     this.contactServeur()
     refresher.complete();
-    console.log('end refresh')
     this.isRefreshing = false;
     
   }
@@ -67,16 +64,12 @@ export class EventPage {
     this.http.get(encodedPath)
         .timeout(this.timeoutMS)
         .map(res => res.json()).subscribe(data => {
-            console.log('data from server :')
-            console.log(data);
             if(!data.hasOwnProperty('error')){
-              console.log("Connected")
               this.fevents = data
-              this.storage.clear()
+              this.storage.remove('events')
               this.storage.set('events', data)
             }
             else{
-              console.log("Not connected")
               this.getDataFromMemory()
             }
         },
@@ -88,12 +81,8 @@ export class EventPage {
   getDataFromMemory(){
     this.storage.get('events').then((val)=>{
       this.fevents = val;
-      console.log(val)
     });
     this.fevents = {}
-    console.log('data from memory :')
-    console.log(this.fevents)
-    console.log('error HTTP');
   }
 
   /*ionViewDidLoad() {
