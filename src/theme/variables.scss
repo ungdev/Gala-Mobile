@@ -52,6 +52,7 @@ $colors: (
   light:      #fcf7f2,
   dark:       #222222,
   navbar:     $bar,
+  white:      #ffffff,
   countdown: (
     base: #300800,
     contrast: #fcf7f2
@@ -70,6 +71,10 @@ $background-color : #110302;
 $tabs-background : $bar;
 $list-background-color : #520e02;
 $refresher-icon-color : #fcf7f2;
+$tabs-tab-color-inactive : #ffffff;
+$tabs-ios-tab-color-inactive: $tabs-tab-color-inactive;
+$tabs-tab-icon-color : $tabs-tab-color-inactive;
+$tabs-border-color : $tabs-tab-color-inactive;
 
 $item-ios-detail-push-color: color($colors, arrow);
 $font: "DIN";

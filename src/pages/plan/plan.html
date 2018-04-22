@@ -7,17 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  (swipe)="swipeEvent($event)">
+<ion-content>
  
 	<div id="map" style="width:100%; height:50%;"></div>
-	<ion-card>
+	<ion-card (swipe)="swipeEvent($event)">
 		<ion-card-content>
 	    	<ion-label text-wrap class="Title">{{roomData.name}}</ion-label>
 	    	{{roomData.description}}
 		</ion-card-content>
 		
 	</ion-card>
-	<ion-card>
+	<ion-card (swipe)="swipeEvent($event)">
 		<ion-card-content>
 	    	<ion-label text-wrap class="Quote">''{{roomData.quote}}'' </ion-label>
 	    	<ion-label class="Author">{{roomData.author}}</ion-label>

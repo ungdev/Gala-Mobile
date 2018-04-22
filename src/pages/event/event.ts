@@ -5,6 +5,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 import { Storage } from '@ionic/storage';
+import { Calendar } from '@ionic-native/calendar';
+import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class EventPage {
   public timeoutMS: number;
   public isRefreshing;
 
-  constructor(public navCtrl: NavController, public http: Http, private storage : Storage) {
+  constructor(public navCtrl: NavController, public http: Http, 
+    private storage : Storage, private calendar : Calendar, private alertCtrl: AlertController) {
     this.path = 'https://api.gala.uttnetgroup.fr';
     this.timeoutMS = 10000;
     this.fevents = {}
@@ -98,6 +101,44 @@ export class EventPage {
         at: new Date(new Date().getTime() + 10000)
       });
   }*/
+
+  calendarClicked(){
+    if(!this.calendar.hasReadWritePermission()){
+      this.calendar.requestReadWritePermission().then(
+        (msg) => { console.log(msg); },
+        (err) => { console.log(err); });
+    }
+    else{
+      this.confirmCalendar()
+    }
+  }
+
+  confirmCalendar() {
+    let alert = this.alertCtrl.create({
+      title: 'Calendrier',
+      message: 'Voulez-vous ajouter les événements du Gala à votre calendrier ?',
+      buttons: [
+        {
+          text: 'Non',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Ok !',
+          handler: () => {
+            var dateStart = new Date("Jun 2, 2018 20:00:00");
+            var dateEnd = new Date("Jun 3, 2018 01:00:00");
+            this.calendar.createEvent("Ouverture du Gala UTT", "12 rue Marie Curie 10000 Troyes", 
+                "N'oubliez pas votre costume !", dateStart, dateEnd)
+            this.calendar.openCalendar(dateStart)
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
   goToDetails(args:any){
     this.navCtrl.push(EventDetailsPage, {arg:args});

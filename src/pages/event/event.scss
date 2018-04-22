@@ -5,10 +5,14 @@ page-event{
       position: relative;
       text-align: center;
     }
-    .button{
+    .buttons{
     	width: 100%;
       position: relative;
       text-align: center;    
+    }
+    .calendarIcon{
+      text-color: #ffffff;
+      color: #ffffff;
     }
 
     .busTitle{
@@ -30,27 +34,44 @@ page-event{
       text-align: center;
     }
     .card-title {
+      font-size: 10.5vmin;
       position: absolute;
+      text-align: center;
       top: 20%;
-      font-size: 3.5em;
       width: 100%;
       font-weight: bold;
-      color: #fff;
+      color: #ffffff;
     }
 
     .card-subtitle {
-      font-size: 2.0em;
+      font-size: 7.0vmin;
       position: absolute;
+      text-align: center;
       top: 50%;
       width: 100%;
-      color: #fff;
+      color: #ffffff;
+    }
+    .card-start {
+      font-size: 8.0vmin;
+      position: absolute;
+      text-align: center;
+      top: 75%;
+      width: 100%;
+      color: #ffffff;
     }
     .info-circle {
-      font-size: 2.0em;
+      font-size: 8.5vmin;
       position: absolute;
-      top: 85%;
-      width: 90%;
-      color: #fff;
+      top: 80%;
+      width: 85%;
+      color: #ffffff;
+    }
+    .info-circle2 {
+      font-size: 8.5vmin;
+      position: absolute;
+      top: 80%;
+      width: 85%;
+      color: #000000;
     }
     .smaller{
       font-size: 15px;

@@ -22,6 +22,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
+import { Calendar } from '@ionic-native/calendar';
 
 
 
@@ -61,6 +62,7 @@ import { IonicStorageModule } from '@ionic/storage';
     InAppBrowser,
     //GoogleMaps,
     SplashScreen,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

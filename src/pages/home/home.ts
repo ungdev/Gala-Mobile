@@ -34,7 +34,7 @@ export class HomePage {
     this.notify(510, new Date(1527993000000), "Le Gala fermera ses portes dans 30 minutes... On espère que cela vous a plu !")
     this.notify(511, new Date(1527989400000), "Les Foods Truck fermeront dans 1h")
     this.notify(512, new Date(1527984000000), "Arrêt de la vente d'alcool dans 1h")
-    this.localNotifications.registerPermission()
+    this.localNotifications.requestPermission()
     this.storage.get('notif').then((val)=>{
       if(val == null){
         this.storage.set('notif', false)
