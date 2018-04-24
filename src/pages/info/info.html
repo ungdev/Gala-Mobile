@@ -5,65 +5,77 @@
       Informations
     </ion-title>
   </ion-navbar>
+  <ion-segment [(ngModel)]="selection" (ionChange)="ionSelect()" color="primary" no-padding>
+      <ion-segment-button value="info">
+        <ion-icon name="information-circle"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="artists">
+        <ion-icon name="musical-notes"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
 </ion-header>
 
 <ion-content padding  (swipe)="swipeEvent($event)">
+  <div *ngIf="infosVisible">
+    <ion-list no-border>
+        <ion-list-header color="header">
+          Accès
+        </ion-list-header>
+    		<ion-item>
+          <ion-icon name="man" item-start></ion-icon>
+              Interdit aux moins de 18 ans
+        </ion-item>
+        <ion-item>
+          <ion-icon name="bowtie" item-start></ion-icon>
+              Tenue de soirée obligatoire
+        </ion-item>
+        <ion-item>
+        <ion-icon name="beer" item-start></ion-icon>
+              Etat convenable exigé
+        </ion-item>
+        <ion-list-header color="header">
+          Adresse
+        </ion-list-header>
 
-	<ion-list no-border>
-      <ion-list-header color="header">
-        Accès
-      </ion-list-header>
-  		<ion-item>
-        <ion-icon name="man" item-start></ion-icon>
-            Interdit aux moins de 18 ans
-      </ion-item>
-      <ion-item>
-        <ion-icon name="bowtie" item-start></ion-icon>
-            Tenue de soirée obligatoire
-      </ion-item>
-      <ion-item>
-      <ion-icon name="beer" item-start></ion-icon>
-            Etat convenable exigé
-      </ion-item>
-      <ion-list-header color="header">
-        Adresse
-      </ion-list-header>
+        <button (click)="click()" ion-item>
+          <ion-icon name="pin" item-start></ion-icon>
+              12 rue Marie curie, Troyes
+          <ion-icon *ngIf="!isIOS" name="arrow-dropright" item-end></ion-icon>
+        </button>
 
-      <button (click)="click()" ion-item>
-        <ion-icon name="pin" item-start></ion-icon>
-            12 rue Marie curie, Troyes
-      </button>
-
-      <ion-list-header color="header">
-        Date
-      </ion-list-header>
-      <ion-item>
-        <ion-icon name="calendar" item-start></ion-icon>
-            2 Juin 2018 - 20h
-      </ion-item>
-      <ion-list-header color="header">
-        Entrée du Gala
-      </ion-list-header>
-      <ion-item>
-            Ouverture à 20h
-      </ion-item>
-      <ion-item class="small">
-            Fermeture temporaire de 23h30 à 00h15
-      </ion-item>
-      <ion-item>
-            Fermeture de l'entrée à 1h
-      </ion-item>
-      <ion-list-header color="header">
-        Nous contacter
-      </ion-list-header>
-      <ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-            gala@utt.fr
-      </ion-item>
-      <ion-item>
-        <ion-icon name="settings" item-start></ion-icon>
-            Problèmes techniques : ung@utt.fr
-      </ion-item>
-	</ion-list>
-
+        <ion-list-header color="header">
+          Date
+        </ion-list-header>
+        <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+              2 Juin 2018 - 20h
+        </ion-item>
+        <ion-list-header color="header">
+          Entrée du Gala
+        </ion-list-header>
+        <ion-item>
+              Ouverture à 20h
+        </ion-item>
+        <ion-item class="small">
+              Fermeture temporaire de 23h30 à 00h15
+        </ion-item>
+        <ion-item>
+              Fermeture de l'entrée à 1h
+        </ion-item>
+        <ion-list-header color="header">
+          Nous contacter
+        </ion-list-header>
+        <ion-item>
+          <ion-icon name="mail" item-start></ion-icon>
+              gala@utt.fr
+        </ion-item>
+        <ion-item>
+          <ion-icon name="settings" item-start></ion-icon>
+              Problèmes techniques : ung@utt.fr
+        </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="artistVisible">
+    <iframe src="https://open.spotify.com/embed?uri=spotify:user:1175448776:playlist:5po57Yq7Uh5tjcL7SnjywI" width={{width}} height={{height}} frameborder="0" allowtransparency="false" allow="encrypted-media"></iframe>
+  </div>
 </ion-content>
