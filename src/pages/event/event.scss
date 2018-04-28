@@ -8,11 +8,19 @@ page-event{
     .buttons{
     	width: 100%;
       position: relative;
-      text-align: center;    
+      text-align: center;  
+    }
+    .card{
+      color: #110302;  
+      text-color: #110302;  
     }
     .calendarIcon{
       text-color: #ffffff;
       color: #ffffff;
+    }
+    .calendarButton{
+      text-color: #123456;
+      color: #123456;
     }
 
     .busTitle{
@@ -72,6 +80,7 @@ page-event{
       top: 80%;
       width: 85%;
       color: #000000;
+      text-color: #000000;
     }
     .smaller{
       font-size: 15px;

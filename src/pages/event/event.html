@@ -1,12 +1,17 @@
 <ion-header (swipe)="swipeEvent($event)">
   <ion-navbar color="navbar">
-    <button (click)="calendarClicked()" icon-start icon-only>
-      <ion-icon class="calendarIcon" name="calendar" color="white"></ion-icon>
-    </button>
-    <ion-title no-padding>
+    <ion-title>
     	<ion-icon name="star"></ion-icon>
       	Evenements {{count}}
+
+      
     </ion-title>
+    <ion-buttons end>
+      <button (click)="calendarClicked()" ion-button icon-only>
+        <ion-icon class="calendarIcon" name="calendar" color="white"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
   <ion-segment [(ngModel)]="events" (ionChange)="ionSelect()" color="primary" no-padding>
       <ion-segment-button value="music">
@@ -26,18 +31,18 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 	<div *ngIf="musicVisible">
-    <div *ngIf="!isEmpty(fevents)">
+    <ion-buttons *ngIf="!isEmpty(fevents)">
   	   <button *ngFor="let event of fevents" class="buttons" (click)="goToDetails(event);" no-padding>
-        <ion-card>
+        <ion-card class="card">
           <img src={{event.Img}}/><!-- {{event.Img}}-->
           <div class="card-title">{{event.Title}}</div>
           <div class="card-subtitle">{{event.Room}}</div>
           <div class="card-start">{{event.Start}}</div>
+          <ion-icon class="info-circle2" name="ios-information-circle-outline" [isActive]="false"></ion-icon>
           <ion-icon class="info-circle" name="information-circle" [isActive]="true"></ion-icon>
-          <ion-icon class="info-circle2" name="information-circle" [isActive]="false"></ion-icon>
         </ion-card>
       </button>
-    </div>
+    </ion-buttons>
 	</div>
 
 	<div *ngIf="foodVisible">

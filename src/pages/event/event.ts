@@ -20,20 +20,20 @@ export class EventPage {
   public musicVisible: boolean
   public foodVisible: boolean
   public busVisible: boolean
-  public fevents: any;
-  public path: string;
-  public timeoutMS: number;
-  public isRefreshing;
+  public fevents: any
+  public path: string
+  public timeoutMS: number
+  public isRefreshing
 
-  constructor(public navCtrl: NavController, public http: Http, 
+  constructor (public navCtrl: NavController, public http: Http, 
     private storage : Storage, private calendar : Calendar, private alertCtrl: AlertController) {
-    this.path = 'https://api.gala.uttnetgroup.fr';
-    this.timeoutMS = 10000;
+    this.path = 'https://api.gala.uttnetgroup.fr'
+    this.timeoutMS = 10000
     this.fevents = {}
     this.storage.get('events').then((val)=>{
-        this.fevents = val;
-    });
-    this.contactServeur();
+        this.fevents = val
+    })
+    this.contactServeur()
     this.events = "music"
     this.showMusic()
     this.isRefreshing = false;
@@ -132,7 +132,7 @@ export class EventPage {
             var dateEnd = new Date("Jun 3, 2018 01:00:00");
             this.calendar.createEvent("Ouverture du Gala UTT", "12 rue Marie Curie 10000 Troyes", 
                 "N'oubliez pas votre costume !", dateStart, dateEnd)
-            this.calendar.openCalendar(dateStart)
+            this.calendar.openCalendar(new Date("Jun 2, 2018 20:00:00"))
           }
         }
       ]

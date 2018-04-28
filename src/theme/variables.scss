@@ -83,6 +83,27 @@ $font-family-md-base: $font;
 $font-family-ios-base: $font;
 $font-family-wp-base: $font;
 
+$list-ios-margin-top: 16px;
+$list-md-margin-top: $list-ios-margin-top;
+$list-ios-margin-end: 0px;
+$list-md-margin-end: $list-ios-margin-end;
+$list-inset-ios-margin-end: 0px;
+$list-inset-md-margin-end: $list-inset-ios-margin-end;
+$list-inset-ios-margin-start : 0px;
+$list-inset-md-margin-start: $list-inset-ios-margin-start;
+$list-md-border-color: #110302;
+$list-inset-md-margin-start: 0px;
+$list-ios-header-padding-start: 0px;
+$list-md-margin-end: 0px;
+$list-md-margin-start: 0px;
+$list-md-margin-top: 0px;
+$list-md-margin-bottom: 0px;
+$list-md-margin-left: 0px;
+$list-md-margin-right: 0px;
+$list-md-header-margin-bottom: 0px;
+//$card-md-background-color: #110302;
+$button-md-background-color: #110302;
+
 
 // App iOS Variables
 // --------------------------------------------------
