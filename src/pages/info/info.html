@@ -1,16 +1,37 @@
 <ion-header  (swipe)="swipeEvent($event)">
-  <ion-navbar color="navbar">
-    <ion-title>
-  		<ion-icon name="information-circle"></ion-icon>
-      Informations
-    </ion-title>
-  </ion-navbar>
+  <div *ngIf="infosVisible">
+    <ion-navbar color="navbar">
+      <ion-title>
+        <ion-icon name="information-circle"></ion-icon>
+        Informations
+      </ion-title>
+    </ion-navbar>
+  </div>
+  <div *ngIf="artistVisible">
+    <ion-navbar color="navbar">
+      <ion-title>
+        <ion-icon name="musical-notes"></ion-icon>
+        Playlist Spotify
+      </ion-title>
+    </ion-navbar>
+  </div>
+  <div *ngIf="partenaireVisible">
+    <ion-navbar color="navbar">
+      <ion-title>
+        <ion-icon name="briefcase"></ion-icon>
+        Partenaires
+      </ion-title>
+    </ion-navbar>
+  </div>
   <ion-segment [(ngModel)]="selection" (ionChange)="ionSelect()" color="primary" no-padding>
       <ion-segment-button value="info">
         <ion-icon name="information-circle"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="artists">
         <ion-icon name="musical-notes"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="partenaires">
+        <ion-icon name="briefcase"></ion-icon>
       </ion-segment-button>
     </ion-segment>
 </ion-header>
@@ -77,5 +98,48 @@
   </div>
   <div *ngIf="artistVisible">
     <iframe src="https://open.spotify.com/embed?uri=spotify:user:1175448776:playlist:5po57Yq7Uh5tjcL7SnjywI" width={{width}} height={{height}} frameborder="0" allowtransparency="false" allow="encrypted-media"></iframe>
+  </div>
+  <div *ngIf="partenaireVisible">
+    <ion-buttons class="buttons">
+       <button (click)="allysonLink();" no-padding>
+          <img src="assets/imgs/partenaires/allyson.png"/>
+      </button>
+      <button (click)="amnestyLink();" no-padding>
+          <img src="assets/imgs/partenaires/amnesty.png"/>
+      </button>
+      <button (click)="nrjLink();" no-padding>
+          <img src="assets/imgs/partenaires/nrj.png"/>
+      </button>
+      <button (click)="socotecLink();" no-padding>
+          <img src="assets/imgs/partenaires/socotec.png"/>
+      </button>
+      <button (click)="festilightLink();" no-padding>
+          <img src="assets/imgs/partenaires/festilight.png"/>
+      </button>
+      <button (click)="bdeLink();" no-padding>
+          <img src="assets/imgs/partenaires/bde.jpg"/>
+      </button>
+      <button (click)="k2aLink();" no-padding>
+          <img src="assets/imgs/partenaires/k2a.png"/>
+      </button>
+      <button (click)="mgelLink();" no-padding>
+          <img src="assets/imgs/partenaires/mgel.jpg"/>
+      </button>
+      <button (click)="rgLink();" no-padding>
+          <img src="assets/imgs/partenaires/rg.jpg"/>
+      </button>
+      <button (click)="premautoLink();" no-padding>
+          <img src="assets/imgs/partenaires/premauto.jpg"/>
+      </button>
+      <button (click)="socgeneraleLink();" no-padding>
+          <img src="assets/imgs/partenaires/socgenerale.png"/>
+      </button>
+      <button (click)="teklissLink();" no-padding>
+          <img src="assets/imgs/partenaires/tekliss.jpg"/>
+      </button>
+      <button (click)="uttLink();" no-padding>
+          <img src="assets/imgs/partenaires/utt.jpg"/>
+      </button>
+    </ion-buttons>
   </div>
 </ion-content>
