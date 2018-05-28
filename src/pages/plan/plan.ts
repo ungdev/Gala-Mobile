@@ -151,10 +151,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "[1er] M104 : Bar Club Ons et Esquisse",
-        "description":"Espace à thème du Club Ons et Esquisse. Ambiance disco funk avec scène à l'intérieur. Coin canapé.",
-        "quote":"Je ne peux vivre sans Champagne en cas de victoire, je le mérite. En cas de défaite, j'en ai besoin.",
-        "author":"Napoléon Bonaparte"
+        "name": "[1er] M104 : Cabinet des Merveilles",
+        "description":"Le Club’Ons et Esquisse vous accueillent dans leur “ Cabinet des Merveilles “ ! Nous vous proposons d’y découvrir des créations artistiques dans une ambiance musicale Disco - House, vous pourrez également y siroter une bière ou vous poser dans l’espace “ chill ”. Ne manquez pas cette invitation à vous déhancher avec nous dans une atmosphère merveilleuse ...",
+        "quote":"Pense à toutes les merveilles qui t'entourent et soit heureux.",
+        "author":"",
+        "selling":["Chouffe", "Blanche de Namur", "Diabolo (kiwi, banane ou citron)", "Sirop (kiwi, banane ou citron)"]
       }
     },
     {
@@ -169,8 +170,8 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "M500 : Salle de Spectacle",
-        "description":"Début du spectacle à 21h. Venez retrouver un show à couper le souffle !",
+        "name": "M500 : Ellip' show",
+        "description":"Début du spectacle à 20h30. Venez retrouver un show à couper le souffle !",
         "quote":"Demain il sera 24h trop tard.",
         "author":"Timothée Toury"
       }
@@ -210,10 +211,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Espace calme",
-        "description":"Envie d'un espace calme pour reposer tes oreilles et chiller ? Viens dans cette zone détente !",
-        "quote":"Je suis morte et calme, je m'économise.",
-        "author":"Jean-Paul Sartre"
+        "name": "Freakshow bar",
+        "description":"Vous avez déjà acheté votre ticket pour la maison des horreurs, il n'y a pas de retour possible. N'ayez pas peur, vous aurez quand même de belles photos",
+        "quote":"On ne peut pas faire la différence en faisant comme tout le monde.",
+        "author":"P. T. Barnum",
+        "selling":["Blanche de Namur", "Karmeliet Triple", "Le Cabotin (Menthe, manzana, limonade"]
       }
     },
     {
@@ -269,7 +271,7 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Main Stage",
+        "name": "The Ducky Stage (scène extérieure)",
         "description":"Scène principale où Kavinsky, Uppermost et les artistes électroniques se produisent.",
         "quote":"Les danses modernes ? Ce n'est plus de la danse, c'est de la décadence.",
         "author":"Alfred Capus"
@@ -359,8 +361,8 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Scène Rock'n roll",
-        "description":"Vous retrouverez ici tous les groupes de Rock du Gala.",
+        "name": "Circus Tent (Grand Chapiteau)",
+        "description":"Scène rock sous le chapiteau où se produisent les artistes rock, pop et rap.",
         "quote":"Les danses modernes ? Ce n'est plus de la danse, c'est de la décadence.",
         "author":"Alfred Capus"
       }
@@ -377,10 +379,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Espace à thème Cocotte min'UTT x ISM",
-        "description":"Plus d'informations prochainement...",
-        "quote":"Bar Bar Bar Bar BarBar Bar BarBar",
-        "author":"Darth Vader"
+        "name": "Méca Circus",
+        "description":"Un hommage aux acrobates modernes et leurs montures d'aciers",
+        "quote":"Cirque. Endroit où les chevaux, poneys et les éléphants sont autorisés à voir des hommes, des femmes et des enfants se conduire comme des idiots.",
+        "author":"Pierre Koch",
+        "selling":["Blanche de Namur", "Karmeliet Triple", "Jacqueline : Vin blanc, limonade et crême de cassis"]
       }
     },
     {
@@ -388,17 +391,18 @@ export class PlanPage {
       "geometry": {
         "type": "Polygon",
         "coordinates": [[
-        [382.703125, 405],
-        [437.6171875, 394.328125],
-        [429.546875, 353.609375],
-        [374.6875, 364.421875]
+        [396.10101318359375, 400.779541015625],
+        [451.59375, 392.234375],
+        [445.2493896484375, 351.29498291015625],
+        [389.89898681640625, 359.753662109375]
         ]]
       },
       "properties": {
-        "name": "Bar de l'EPF",
-        "description":"Bar organisé par nos voisins de l'école polytechnique (anciennement) féminine.",
-        "quote":"UTT allez aller aller...",
-        "author":"Des nouveaux de l'EPF"
+        "name": "Bar Fantoma'tiss",
+        "description":"Viens t’ambiancer avec les peufiens au stand « Fantoma’tiss », LE stand à ne pas manquer !! Les Space’Tiss t’enverront au 7ème ciel jusqu’au bout de la nuit 🚀",
+        "quote":"La chance s’envole, l’esprit s’décolle, mais il nous reste la picole.",
+        "author":"Doug Coughlin",
+        "selling":["Coq Hardi", "Délirium Red", "Chouffe"]
       }
     },
     {
@@ -413,10 +417,49 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Food Truck 1",
-        "description":"Vous retrouverez ici de la nourriture pour vous sustenter.",
+        "name": "Ted's finger",
+        "description":"Restaurateur salé qui vends de la finger's food (nourriture à manger avec les doigts).",
         "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "author":"Pierre Baillargeon",
+        "selling": ["Finger's box"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+        [297.919189453125, 486.552490234375],
+        [336.1875, 511.875],
+        [357.04638671875, 480.59814453125],
+        [318.692626953125, 455.19775390625]
+        ]]
+      },
+      "properties": {
+        "name": "Crêpe d'Elo",
+        "description":"Restaurateur sucré qui vends des crêpes.",
+        "quote": "C'est une fine couche de sarrazin saisie dessus dessous...",
+        "author":"Guide Utile du Bon UTTien",
+        "selling":["Crêpes au sucre", "Crêpes au nutella"]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+        [321.23284912109375, 445.0902099609375],
+        [351.81878662109375, 410.86639404296875],
+        [323.84375, 385.734375],
+        [293.25543212890625, 420.11065673828125]
+        ]]
+      },
+      "properties": {
+        "name": "Chez Sari",
+        "description":"Restaurateur salé qui vends des Kebabs.",
+        "quote": "Pourquoi avoir des abdos quand on peut avoir un kebab ?",
+        "author":"Un prophète",
+        "selling":["Sandwich Kebab"]
       }
     },
     {
@@ -431,10 +474,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Food Truck 2",
-        "description":"Vous retrouverez ici de la nourriture pour vous sustenter.",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "name": "La Carte",
+        "description":"Restaurateur salé qui vends des buritos.",
+        "quote": "Des frites, des frites, des frites, des frites, des frites",
+        "author":"Les Tuches",
+        "selling": ["Frites", "Burger", "Burrito"]
       }
     },
     {
@@ -449,7 +493,7 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Point de Rechargement",
+        "name": "Point de Rechargement Rue",
         "description":"Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
         "quote": "L'influence est une nourriture.",
         "author":"Pierre Baillargeon"
@@ -467,7 +511,7 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Point de Rechargement",
+        "name": "Point de Rechargement C",
         "description":"Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
         "quote": "L'influence est une nourriture.",
         "author":"Pierre Baillargeon"
@@ -500,10 +544,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "[1er] Innov'UTT x Junior Conseil",
-        "description":"Vous retrouverez ici un bar organisé par les associations Innov'UTT et Junior Conseil.",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "name": "[1er] L'EAT magique",
+        "description":"L'EAT magique va vous plonger dans une ambiance mysterieuse. Venez boire des breuvages fumant et assister à des tours encore jamais vu jusqu'à aujourd'hui",
+        "quote": "Le monde de la magie est une illusion et l’art est de présenter l’illusion du monde.",
+        "author":"Paul Virilio",
+        "selling":["Chouffe", "Blanche de Namur", "Cocktail Houdini (Mousseux et sirop de violette)"]
       }
     },
     {
@@ -530,10 +575,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "[1er] Cabaret",
-        "description":"Vous retrouverez ici un bar organisé dans le thème du cabaret, coorganisé par Fal'UTT et le club rock",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "name": "[1er] Le Moulin Rouge [2nd] Laser Game",
+        "description":"Bienvenue au Cabaret Club Rock et Fal'UTT. Venez danser et découvrir la folle ambiance du cabaret rock.",
+        "quote": "Le spectacle doit continuer, Satine. Nous sommes les créatures des bas-fonds. Il nous est interdit d'aimer.",
+        "author":"Toulouse dans le film Moulin Rouge",
+        "selling":["Blanche de Namur", "Karmeliet Triple", "Le breuvage du Moulin (Soho, citron, cramberries)", "Laser Game"]
       }
     },
     {
@@ -567,10 +613,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "[1er] Bar PMOM (MM askip)",
-        "description":"Vous retrouverez ici un bar organisé par les PMOMs. Choucroute, cassoulet.",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "name": "[1er] Les Arènes Nogentaises",
+        "description":"Les mytiques Arènes PMOM viennent abuser les foules Troyennes.",
+        "quote": "Que tu ais soif ou non les PMOM te régalerons !",
+        "author":"Un illuminé",
+        "selling":["Délirium Red", "Blanche de Namur", "Mojito sans alcool"]
       }
     },
     {
@@ -607,10 +654,13 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "[1er] Bar du RUTT",
-        "description":"Vous retrouverez ici un bar organisé par le club de rugby de l'UTT : le RUTT",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "name": "[1er] Le Cirq'Ovale et Karaoké",
+        "description":"Mesdames et Messieurs approchez approchez au Cirq'Ovale! Vous y trouverez de magnifiques animaux exotiques ainsi que " 
+        + "d'autres activités divertissantes le tout accompagné de moult rafraichissements. Attention pour les 20 ans de la famille Di RUTTi, " 
+        + "le show risque d'être grandiose! Vous retrouverez aussi à cet étage une salle de Karaoké.",
+        "quote": "Le cirque, c'est un rond de paradis dans un monde dur et dément.",
+        "author":"RUTT' Tonic",
+        "selling":["Bête", "Chouffe", "Coq Hardi"]
       }
     },
     {
@@ -642,7 +692,9 @@ export class PlanPage {
         "name": "Bar Amicale",
         "description":"Vous retrouverez ici un bar organisé par le personnel de l'UTT",
         "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "author":"Pierre Baillargeon",
+        "selling":["Champagne", "Vin Blanc", "Vin rouge", "Vin rosé Estezargues", "Vin rosé autre",
+         "Assiette de charcutrie", "Assiette de fromage"]
       }
     },
     {
@@ -650,57 +702,98 @@ export class PlanPage {
       "geometry": {
         "type": "Polygon",
         "coordinates": [[
-        [314.96875, 461.609375],
-        [317.046875, 465.5],
-        [319.109375, 468.15625],
-        [322, 471.3125],
-        [326.875, 474.71875],
-        [332.203125, 477.125],
-        [336.84375, 478.3125],
-        [340.796875, 478.59375],
-        [343.96875, 478.5625],
-        [346.171875, 478.25],
-        [350.59375, 477.1875],
-        [353.265625, 476.1875],
-        [356.796875, 474.234375],
-        [359.796875, 472.078125],
-        [362.359375, 469.75],
-        [364.8125, 466.828125],
-        [367.0625, 463.28125],
-        [368.71875, 459.40625],
-        [369.765625, 456],
-        [370.375, 452.421875],
-        [370.375, 448.40625],
-        [369.953125, 444.65625],
-        [369.203125, 441.328125],
-        [368.34375, 438.921875],
-        [367.0625, 436.21875],
-        [364.921875, 432.65625],
-        [362.796875, 430.078125],
-        [361.109375, 428.4375],
-        [356.828125, 425.15625],
-        [353.109375, 423.109375],
-        [347.109375, 421.21875],
-        [344.421875, 420.78125],
-        [338.828125, 420.75],
-        [333.40625, 421.765625],
-        [330.828125, 422.640625],
-        [326.421875, 424.84375],
-        [322.578125, 427.609375],
-        [319.46875, 430.765625],
-        [317.421875, 433.40625],
-        [315.296875, 436.890625],
-        [314.015625, 440.015625],
-        [312.734375, 444.171875],
-        [312.375, 447.734375],
-        [312.625, 452.421875],
-        [313.0625, 456.4375],
-        [314.46875, 460.484375]
+        [382.90625, 455.7734375],
+        [383.73370361328125, 455.6600341796875],
+        [385.4092102050781, 455.313720703125],
+        [387.1811218261719, 454.890380859375],
+        [388.8244323730469, 454.39501953125],
+        [390.1328125, 453.9765625],
+        [391.4393005371094, 453.38623046875],
+        [392.3455505371094, 452.87841796875],
+        [393.875, 452.015625],
+        [394.97686767578125, 451.2915954589844],
+        [396.08184814453125, 450.53057861328125],
+        [396.9167785644531, 449.9982604980469],
+        [398.015625, 449.09375],
+        [398.734375, 448.390625],
+        [399.64007568359375, 447.64697265625],
+        [400.4328308105469, 446.737060546875],
+        [401.3061218261719, 445.64862060546875],
+        [402.15625, 444.7109375],
+        [403.13702392578125, 443.280029296875],
+        [403.9598388671875, 442.0110778808594],
+        [404.7586364746094, 440.6282653808594],
+        [405.64739990234375, 438.8879089355469],
+        [406.3050231933594, 437.30419921875],
+        [406.765625, 435.84375],
+        [407.3311462402344, 434.046630859375],
+        [407.6484375, 432.2734375],
+        [407.87249755859375, 430.45001220703125],
+        [408.0546875, 428.5],
+        [408.02093505859375, 426.648193359375],
+        [408.0072937011719, 424.9518737792969],
+        [407.8027648925781, 423.4105224609375],
+        [407.65625, 421.8828125],
+        [407.3006591796875, 420.2448425292969],
+        [406.9433898925781, 419.23480224609375],
+        [406.69952392578125, 418.01348876953125],
+        [406.1244201660156, 416.7134094238281],
+        [405.6745300292969, 415.4378662109375],
+        [405.2127990722656, 414.485595703125],
+        [404.69842529296875, 413.3014831542969],
+        [404.20806884765625, 412.57611083984375],
+        [402.94244384765625, 410.62298583984375],
+        [400.990478515625, 407.97479248046875],
+        [399.05902099609375, 406.008056640625],
+        [397.38653564453125, 404.4498291015625],
+        [395.53125, 402.984375],
+        [392.90625, 401.359375],
+        [388.80181884765625, 399.7203369140625],
+        [384.99761962890625, 398.5859375],
+        [381.37591552734375, 397.98992919921875],
+        [377.54583740234375, 398.08831787109375],
+        [373.79248046875, 398.577880859375],
+        [370.5372314453125, 399.25604248046875],
+        [367.759521484375, 400.2442626953125],
+        [364.6527099609375, 401.8623046875],
+        [362.00982666015625, 403.61224365234375],
+        [360.30810546875, 405.00067138671875],
+        [358.96795654296875, 406.17828369140625],
+        [357.296875, 407.84375],
+        [355.85009765625, 409.72381591796875],
+        [354.60009765625, 411.58319091796875],
+        [353.35968017578125, 413.6724853515625],
+        [352.55548095703125, 415.3106689453125],
+        [351.8138427734375, 417.0460205078125],
+        [351.17108154296875, 419.020751953125],
+        [350.7025146484375, 420.96099853515625],
+        [350.331787109375, 423.19354248046875],
+        [350.10601806640625, 425.80224609375],
+        [350.05322265625, 428.09320068359375],
+        [350.2276611328125, 430.1541748046875],
+        [350.59423828125, 432.5338134765625],
+        [351.1619873046875, 434.71099853515625],
+        [351.78033447265625, 436.87188720703125],
+        [352.4459228515625, 438.67266845703125],
+        [353.33343505859375, 440.47540283203125],
+        [354.69366455078125, 442.75726318359375],
+        [356.0220947265625, 444.61871337890625],
+        [357.0631103515625, 445.95916748046875],
+        [358.74560546875, 447.7012939453125],
+        [360.769775390625, 449.52947998046875],
+        [362.93328857421875, 451.1280517578125],
+        [364.771484375, 452.29931640625],
+        [367.21875, 453.53125],
+        [369.4656982421875, 454.38970947265625],
+        [372.58538818359375, 455.313720703125],
+        [375.86492919921875, 455.955322265625],
+        [378.22308349609375, 456.0025634765625],
+        [379.8974609375, 455.97967529296875]
         ]]
       },
       "properties": {
-        "name": "Petit cercle",
-        "description":"Vous retrouverez ici un bar organisé par une association de l'UTT",
+        "name": "Le clown gourmand (Petit Chapiteau)",
+        "description":"Zone couverte pour pouvoir déguster tous ces délicieux mets proposés par les différents Food Trucks.",
         "quote": "L'influence est une nourriture.",
         "author":"Pierre Baillargeon"
       }
@@ -717,7 +810,7 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Point de Rechargement",
+        "name": "Point de Rechargement N",
         "description":"Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
         "quote": "L'influence est une nourriture.",
         "author":"Pierre Baillargeon"
@@ -738,10 +831,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Espace à thème UNG",
+        "name": "UNG",
         "description":"Plus d'information à l'approche du Gala...",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon"
+        "quote": "Il y a plus d'un âne à la foire qui s'appelle Martin.",
+        "author":"",
+        "selling":["Bête", "Blanche de Namur", "Karmeliet Triple", "Bouteille de Champagne", "Coupe de Champagne"]
       }
     }
     ]};
@@ -750,7 +844,7 @@ export class PlanPage {
   swipeEvent(event){
     console.log(event)
     if(event.direction == 4){
-      this.navCtrl.parent.select(2);
+      this.navCtrl.parent.select(3);
     }
   }
 

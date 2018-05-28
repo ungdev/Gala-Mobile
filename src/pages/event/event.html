@@ -2,9 +2,7 @@
   <ion-navbar color="navbar">
     <ion-title>
     	<ion-icon name="star"></ion-icon>
-      	Evenements {{count}}
-
-      
+      	Evenements
     </ion-title>
     <ion-buttons end>
       <button (click)="calendarClicked()" ion-button icon-only>
@@ -34,7 +32,9 @@
     <ion-buttons *ngIf="!isEmpty(fevents)">
   	   <button *ngFor="let event of fevents" class="buttons" (click)="goToDetails(event);" no-padding>
         <ion-card class="card">
-          <img src={{event.Img}}/><!-- {{event.Img}}-->
+          <img class="defaultImage" src="assets/imgs/default.png"/>
+          <img class="card-image" src={{event.Img}}/>
+          <!--<img class="card-image" src="assets/imgs/fireworks.jpe"/>-->
           <div class="card-title">{{event.Title}}</div>
           <div class="card-subtitle">{{event.Room}}</div>
           <div class="card-start">{{event.Start}}</div>
@@ -46,7 +46,7 @@
 	</div>
 
 	<div *ngIf="foodVisible">
-		<ion-list no-border>
+		<ion-list no-border text-wrap>
 	  	  <ion-item>
 	            20h - Ouverture des Foods Truck
 	      </ion-item>
@@ -54,7 +54,7 @@
 	            2h - Fermeture des étages
 	      </ion-item>
 	      <ion-item>
-	      		3h - Arrêt de la vente d'alcool
+	      		3h - Arrêt de la vente d'alcool - Fermeture du Lounge
 	      <!--<ion-icon name="beer" item-end></ion-icon>-->
 	      </ion-item>
 	      <ion-item>
@@ -72,12 +72,24 @@
       </ion-row>
       <ion-row>
         <ion-col>
+          <ion-card class="navettetext">Aucune boisson ne sera tolérée dans les bus, et un comportement correct est exigé.</ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="navettetext">Avant 21h30, le service de transport régulier peut être utilisé, moyennant le prix d’un ticket par personne.</ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="navettetext">A partir de 21h30, une navette gratuite est mise en place entre le rond-point de Beurnonville (proche du Centre des Finances Publiques et du CNAM) et le parking de l’UTT.</ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
           <ion-list>
             <ion-item>
-              <ion-label class="busTitle">Centre Ville - UTT</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label class="colL">21h00</ion-label>
+              <ion-label class="busTitle">Beurnonville - UTT</ion-label>
             </ion-item>
             <ion-item>
               <ion-label class="colL">21h30</ion-label>
@@ -86,16 +98,31 @@
               <ion-label class="colL">22h00</ion-label>
             </ion-item>
             <ion-item>
+              <ion-label class="colL">22h15</ion-label>
+            </ion-item>
+            <ion-item>
               <ion-label class="colL">22h30</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="colL">22h45</ion-label>
             </ion-item>
             <ion-item>
               <ion-label class="colL">23h00</ion-label>
             </ion-item>
             <ion-item>
+              <ion-label class="colL">23h15</ion-label>
+            </ion-item>
+            <ion-item>
               <ion-label class="colL">23h30</ion-label>
             </ion-item>
             <ion-item>
+              <ion-label class="colL">23h45</ion-label>
+            </ion-item>
+            <ion-item>
               <ion-label class="colL">00h00</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="colL">00h15</ion-label>
             </ion-item>
             <ion-item>
               <ion-label class="colL">00h30</ion-label>
@@ -105,7 +132,7 @@
         <ion-col>
           <ion-list>
             <ion-item>
-              <ion-label class="busTitle">UTT - Centre Ville</ion-label>
+              <ion-label class="busTitle">UTT - Beurnonville</ion-label>
             </ion-item>
             <ion-item>
               <ion-label class="colR">01h00</ion-label>
@@ -129,10 +156,19 @@
               <ion-label class="colR">04h00</ion-label>
             </ion-item>
             <ion-item>
+              <ion-label class="colR">04h15</ion-label>
+            </ion-item>
+            <ion-item>
               <ion-label class="colR">04h30</ion-label>
             </ion-item>
             <ion-item>
+              <ion-label class="colR">04h45</ion-label>
+            </ion-item>
+            <ion-item>
               <ion-label class="colR">05h00</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="colR">05h15</ion-label>
             </ion-item>
             <ion-item>
               <ion-label class="colR">05h30</ion-label>

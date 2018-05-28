@@ -80,9 +80,11 @@ export class HomePage {
       this.localNotifications.cancel(id)
     }
     this.localNotifications.schedule({
-        id:id,
-        text: message,
-        at: new Date(date)
-      }); // convention sur id : event entre 1000 et 1999
+       id:id,
+       text: message,
+       trigger: {at: new Date(date)},
+       led: 'FF0000',
+       sound: null
+    }); // convention sur id : event entre 1000 et 1999
   }
 }

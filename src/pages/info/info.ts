@@ -109,4 +109,13 @@ export class InfoPage {
   uttLink(){
     this.iab.create('http://www.utt.fr/fr/index.html', '_system', {});
   }
+  laserLink(){
+    this.iab.create('http://www.lasergame-evolution.com/fr/14/Troyes/', '_system', {});
+  }
+  mercureLink(){
+    this.iab.create('https://mercure.accorhotels.com/fr/france/index.shtml', '_system', {});
+  }
+  estLink(){
+    this.iab.create('https://culturegrandest.fr/', '_system', {});
+  }
 }

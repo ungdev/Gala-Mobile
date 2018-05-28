@@ -5,6 +5,14 @@ page-event{
       position: relative;
       text-align: center;
     }
+    .defaultImage{
+      position: relative;
+    }
+    .card-image{
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
     .buttons{
     	width: 100%;
       position: relative;
@@ -24,17 +32,17 @@ page-event{
     }
 
     .busTitle{
-      font-size: 1.0em;
+      font-size: 0.8em;
       text-align: center;
     }
     .colR{
       text-align: right;
-      font-size: 0.8em;
+      font-size: 1.0em;
       color: #999999;
     }
     .colL{
       text-align: left;
-      font-size: 0.8em;
+      font-size: 1.0em;
       color: #999999;
     }
     .Navettes{
@@ -42,7 +50,7 @@ page-event{
       text-align: center;
     }
     .card-title {
-      font-size: 10.5vmin;
+      font-size: 9.5vmin;
       position: absolute;
       text-align: center;
       top: 20%;
@@ -55,7 +63,7 @@ page-event{
       font-size: 7.0vmin;
       position: absolute;
       text-align: center;
-      top: 50%;
+      top: 55%;
       width: 100%;
       color: #ffffff;
     }
@@ -91,6 +99,10 @@ page-event{
     }
     .refresh{
       color: #555555;
+    }
+    .navettetext{
+      color: #ffffff;
+      padding: 10px 10px 10px 10px;
     }
   }
 }

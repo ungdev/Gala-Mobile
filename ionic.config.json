@@ -1,6 +1,6 @@
 {
-  "name": "Gala UTT",
-  "app_id": "cb905f52",
+  "name": "app",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -42,10 +42,10 @@ export class EventPage {
 
   swipeEvent(event){
     if(event.direction == 2){
-      this.navCtrl.parent.select(3);
+      this.navCtrl.parent.select(4);
     }
     if(event.direction == 4){
-      this.navCtrl.parent.select(1);
+      this.navCtrl.parent.select(2);
     }
   }
 
@@ -132,7 +132,8 @@ export class EventPage {
             var dateEnd = new Date("Jun 3, 2018 01:00:00");
             this.calendar.createEvent("Ouverture du Gala UTT", "12 rue Marie Curie 10000 Troyes", 
                 "N'oubliez pas votre costume !", dateStart, dateEnd)
-            this.calendar.openCalendar(new Date("Jun 2, 2018 20:00:00"))
+            //this.calendar.hasReadWritePermission()
+            //this.calendar.openCalendar(new Date("Jun 2, 2018 20:00:00"))
           }
         }
       ]
