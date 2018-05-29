@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Platform } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-ticket',
@@ -10,10 +9,11 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 export class TicketDetailsPage {
 
   public ticket: any;
+  public mainPage: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
-    this.ticket = {"name":"", "firstname":"1", "code":"", "options":[]}
+  constructor(public navCtrl: NavController, private storage : Storage, public navParams: NavParams) {
+    this.ticket = {"name":"", "surname":"", "qrcode":"", "options":[]}
   }
 
   swipeEvent(event){
@@ -33,23 +33,32 @@ export class TicketDetailsPage {
     return false;;
   }
 
+  delete(){
+    this.navCtrl.pop()
+    for(let ticket in this.mainPage.tickets){
+      if(this.mainPage.tickets[ticket].qrcode === this.ticket.qrcode){
+        this.mainPage.tickets.splice(ticket, 1)
+      }
+    }
+    this.storage.remove('tickets')
+    this.storage.set('tickets', this.mainPage.tickets)
+  }
+
   ionViewDidLoad() {
-    this.ticket = this.navParams.get('ticket');
+    this.ticket = this.navParams.get('ticket')
+    this.mainPage = this.navParams.get('this')
+    console.log(this.ticket)
   }
 
   hasFastPass(){
-    if(this.ticket.options.indexOf("fastpass") == -1)
+    if(this.ticket.options.indexOf("Fastpass") == -1)
       return false;
     return true;
   }
 
   hasCashLess(){
-    if(this.ticket.options.indexOf("cashless") == -1)
+    if(this.ticket.options.indexOf("Achat d’un support de paiement type ​cashless​") == -1)
       return false;
     return true;
-  }
-
-  download(){
-    this.iab.create(this.ticket.link, '_system', {});
   }
 }

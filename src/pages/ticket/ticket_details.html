@@ -2,20 +2,24 @@
   <ion-navbar color="navbar">
       <ion-title>
         <ion-icon name="barcode"></ion-icon>
-        {{ticket.firstname}} {{ticket.name}}
+        {{ticket.surname}} {{ticket.name}}
       </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding  (swipe)="swipeEvent($event)">
   <ion-card>
-    <ngx-qrcode [qrc-value]="ticket.code"></ngx-qrcode>
+    <ngx-qrcode [qrc-value]="ticket.qrcode"></ngx-qrcode>
   </ion-card>
 
   <ion-list>
     <ion-item *ngIf="hasFastPass()">Fast Pass</ion-item>
     <ion-item *ngIf="hasCashLess()">Cash Less</ion-item>
+    <ion-item>{{ticket.price}}</ion-item>
   </ion-list>
-  <button ion-button color="primary" (click) = "download();" round full class="place">Télécharger ma place</button>
 </ion-content>
+
+<ion-footer>
+  <button ion-button color="primary" (click) = "delete();" round full class="place">Supprimer le ticket</button>
+</ion-footer>
 

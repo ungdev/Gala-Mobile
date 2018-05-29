@@ -27,7 +27,7 @@
       <ion-segment-button value="info">
         <ion-icon name="information-circle"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="artists">
+      <ion-segment-button value="artists" *ngIf="!isIOS">
         <ion-icon name="musical-notes"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="partenaires">

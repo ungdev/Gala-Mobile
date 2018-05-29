@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Platform } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AlertController } from 'ionic-angular';
 import { TicketDetailsPage } from './ticket_details'
@@ -18,24 +17,8 @@ export class TicketPage {
 
   constructor(private iab: InAppBrowser, public http: Http, 
       private storage : Storage, public navCtrl: NavController, public alertCtrl: AlertController) {
-    this.tickets = [
-      {
-        "name":"Dufour",
-        "firstname":"Arnaud",
-        "code":"jfahf",
-        "options":["fastpass"],
-        "link":"http://facebook.com"
-      },
-      {
-        "name":"Heroulmapoule",
-        "firstname":"Benjamin",
-        "code":"fjzpf",
-        "options":["cashless"],
-        "link":"http://facebook.com"
-      },
-    ]
+    this.tickets = []
     this.getDataFromMemory()
-    this.checkTicket()
   }
 
   swipeEvent(event){
@@ -60,7 +43,7 @@ export class TicketPage {
   }
 
   goToDetails(ticket:any){
-    this.navCtrl.push(TicketDetailsPage, {ticket:ticket});
+    this.navCtrl.push(TicketDetailsPage, {ticket:ticket, this:this});
   }
 
   addClicked(){
@@ -68,14 +51,44 @@ export class TicketPage {
   }
 
   getDataFromMemory(){
-    this.storage.get('tickets').then((val)=>{
+    this.storage.get('tickets').then(val=>{
       this.tickets = val;
+      if(this.tickets === null)
+        this.tickets = []
+
+      this.checkTicket()
     });
-    this.tickets = {}
+    this.tickets = []
   }
 
   checkTicket(){
-    for(let i = 0; i < this.tickets)
+    for(let ticket in this.tickets){
+      let encodedPath = encodeURI('https://api.gala.uttnetgroup.fr/ticket/code=' + this.tickets[ticket].qrcode + '&name=' + this.tickets[ticket].name);
+      this.http.get(encodedPath)
+          .timeout(10000)
+          .map(res => res.json()).subscribe(data => {
+            console.log(data.statusCode)
+              if(data.statusCode === 404){
+                this.presentAlert(data.statusCode)
+                this.tickets.splice(ticket, 1) 
+                this.storage.remove('tickets')
+                this.storage.set('tickets', this.tickets)
+              }
+          },
+          err => {
+              this.presentAlert(524)
+              this.getDataFromMemory()
+          });
+    }
+  }
+
+  presentAlert(code) {
+    let alert = this.alertCtrl.create({
+      title: 'Erreur',
+      subTitle: 'Echec de la récupération du billet, code d\'erreur ' + code,
+      buttons: ['ok']
+    });
+    alert.present();
   }
 
   contactBilletterie(code, name){
@@ -83,16 +96,19 @@ export class TicketPage {
     this.http.get(encodedPath)
         .timeout(10000)
         .map(res => res.json()).subscribe(data => {
-            if(!data.hasOwnProperty('error')){
-              this.tickets = data
+          console.log(data.statusCode)
+            if(data.statusCode === 200){
+              this.tickets.push(data.body.data) 
               this.storage.remove('tickets')
-              this.storage.set('tickets', data)
+              this.storage.set('tickets', this.tickets)
             }
             else{
+              this.presentAlert(data.statusCode)
               this.getDataFromMemory()
             }
         },
         err => {
+            this.presentAlert(524)
             this.getDataFromMemory()
         });
   }
@@ -121,6 +137,12 @@ export class TicketPage {
         {
           text: 'Ajouter',
           handler: data => {
+            for(let ticket in this.tickets){
+              if(this.tickets[ticket].qrcode === data.code){
+                this.presentAlert(409 + ", vous avez déjà ce billet.")
+                return
+              }
+            }
             this.contactBilletterie(data.code, data.name)
           }
         }

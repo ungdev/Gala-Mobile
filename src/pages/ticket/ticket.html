@@ -15,7 +15,7 @@
 <ion-content padding  (swipe)="swipeEvent($event)">
   <div *ngIf="!isEmpty(tickets)">
       <button *ngFor="let ticket of tickets" (click)="goToDetails(ticket);" color="primary" ion-button full>
-          {{ticket.firstname}} {{ticket.name}}
+          {{ticket.surname}} {{ticket.name}}
       </button>
   </div>
   <div *ngIf="isEmpty(tickets)">
@@ -24,11 +24,12 @@
         <ion-label text-wrap class="empty">Vous n'avez pas de billet, vous pouvez en ajouter un en cliquant sur le bouton +. Si vous n'avez pas encore de billet à ajouter, vous pouvez en acheter un ici :</ion-label>
       </ion-card-content>
     </ion-card>
+    <button ion-button color="primary" (click) = "goToBilleterie();" round full class="place">Prendre sa place</button>
   </div>
 </ion-content>
 
 
 
-<ion-footer>
+<ion-footer *ngIf="!isEmpty(tickets)">
   <button ion-button color="primary" (click) = "goToBilleterie();" round full class="place">Prendre sa place</button>
 </ion-footer>

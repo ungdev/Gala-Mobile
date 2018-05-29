@@ -212,7 +212,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "Freakshow bar",
-        "description":"Vous avez déjà acheté votre ticket pour la maison des horreurs, il n'y a pas de retour possible. N'ayez pas peur, vous aurez quand même de belles photos",
+        "description":"Vous avez déjà acheté votre ticket pour la maison des horreurs, il n'y a pas de retour possible. N'ayez pas peur, vous aurez quand même de belles photos par Argentique, accompagné de Média, la Fanfare et les Ch'UTT de vers",
         "quote":"On ne peut pas faire la différence en faisant comme tout le monde.",
         "author":"P. T. Barnum",
         "selling":["Blanche de Namur", "Karmeliet Triple", "Le Cabotin (Menthe, manzana, limonade"]
@@ -243,7 +243,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "[RDC] Bar Revivre (sans alcool)",
-        "description":"Espace SAM par l'association Revivre où des permanenciers sont là pour distribuer de l'eau, des softs. Ils ont des éthylotests à disposition.",
+        "description":"Espace SAM tenu par l'association Revivre où des permanenciers sont là pour distribuer de l'eau, des softs. Ils ont des éthylotests à disposition.",
         "quote":"L'homme ne meurt que pour revivre.",
         "author":"Roch Carrier"
       }
@@ -380,9 +380,9 @@ export class PlanPage {
       },
       "properties": {
         "name": "Méca Circus",
-        "description":"Un hommage aux acrobates modernes et leurs montures d'aciers",
+        "description":"Un hommage aux acrobates modernes et leurs montures d'aciers par Cocotte min'UTT et ISM.",
         "quote":"Cirque. Endroit où les chevaux, poneys et les éléphants sont autorisés à voir des hommes, des femmes et des enfants se conduire comme des idiots.",
-        "author":"Pierre Koch",
+        "author":"",
         "selling":["Blanche de Namur", "Karmeliet Triple", "Jacqueline : Vin blanc, limonade et crême de cassis"]
       }
     },
@@ -418,10 +418,10 @@ export class PlanPage {
       },
       "properties": {
         "name": "Ted's finger",
-        "description":"Restaurateur salé qui vends de la finger's food (nourriture à manger avec les doigts).",
+        "description":"Restaurateur salé qui vend de la finger's food (nourriture à manger avec les doigts).",
         "quote": "L'influence est une nourriture.",
         "author":"Pierre Baillargeon",
-        "selling": ["Finger's box"]
+        "selling": ["Ted's box "]
       }
     },
     {
@@ -437,7 +437,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "Crêpe d'Elo",
-        "description":"Restaurateur sucré qui vends des crêpes.",
+        "description":"Restaurateur sucré qui vend des crêpes.",
         "quote": "C'est une fine couche de sarrazin saisie dessus dessous...",
         "author":"Guide Utile du Bon UTTien",
         "selling":["Crêpes au sucre", "Crêpes au nutella"]
@@ -456,7 +456,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "Chez Sari",
-        "description":"Restaurateur salé qui vends des Kebabs.",
+        "description":"Restaurateur salé qui vend des Kebabs.",
         "quote": "Pourquoi avoir des abdos quand on peut avoir un kebab ?",
         "author":"Un prophète",
         "selling":["Sandwich Kebab"]
@@ -545,7 +545,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "[1er] L'EAT magique",
-        "description":"L'EAT magique va vous plonger dans une ambiance mysterieuse. Venez boire des breuvages fumant et assister à des tours encore jamais vu jusqu'à aujourd'hui",
+        "description":"L'EAT magique de Junior Conseil et Innov'UTT va vous plonger dans une ambiance mysterieuse. Venez boire des breuvages fumant et assister à des tours encore jamais vu jusqu'à aujourd'hui.",
         "quote": "Le monde de la magie est une illusion et l’art est de présenter l’illusion du monde.",
         "author":"Paul Virilio",
         "selling":["Chouffe", "Blanche de Namur", "Cocktail Houdini (Mousseux et sirop de violette)"]
@@ -659,8 +659,8 @@ export class PlanPage {
         + "d'autres activités divertissantes le tout accompagné de moult rafraichissements. Attention pour les 20 ans de la famille Di RUTTi, " 
         + "le show risque d'être grandiose! Vous retrouverez aussi à cet étage une salle de Karaoké.",
         "quote": "Le cirque, c'est un rond de paradis dans un monde dur et dément.",
-        "author":"RUTT' Tonic",
-        "selling":["Bête", "Chouffe", "Coq Hardi"]
+        "author":"Annie Fratellini",
+        "selling":["Bête", "Chouffe", "Coq Hardi", "RUTT' Tonic (sans alcool) : curaçao, citron vert, tonic"]
       }
     },
     {
@@ -835,7 +835,7 @@ export class PlanPage {
         "description":"Plus d'information à l'approche du Gala...",
         "quote": "Il y a plus d'un âne à la foire qui s'appelle Martin.",
         "author":"",
-        "selling":["Bête", "Blanche de Namur", "Karmeliet Triple", "Bouteille de Champagne", "Coupe de Champagne"]
+        "selling":["Bête", "Blanche de Namur", "Karmeliet Triple", "Bouteille de Champagne", "Coupe de Champagne", "Diva : fruits rouges, coco, vanille"]
       }
     }
     ]};
