@@ -545,7 +545,7 @@ export class PlanPage {
       },
       "properties": {
         "name": "[1er] L'EAT magique",
-        "description":"L'EAT magique de Junior Conseil et Innov'UTT va vous plonger dans une ambiance mysterieuse. Venez boire des breuvages fumant et assister à des tours encore jamais vu jusqu'à aujourd'hui.",
+        "description":"L'EAT magique de Junior Conseil et Innov'UTT va vous plonger dans une ambiance mysterieuse. Venez boire des breuvages fumant et assister à des tours encore jamais vus jusqu'à aujourd'hui.",
         "quote": "Le monde de la magie est une illusion et l’art est de présenter l’illusion du monde.",
         "author":"Paul Virilio",
         "selling":["Chouffe", "Blanche de Namur", "Cocktail Houdini (Mousseux et sirop de violette)"]
@@ -615,7 +615,7 @@ export class PlanPage {
       "properties": {
         "name": "[1er] Les Arènes Nogentaises",
         "description":"Les mytiques Arènes PMOM viennent abuser les foules Troyennes.",
-        "quote": "Que tu ais soif ou non les PMOM te régalerons !",
+        "quote": "Que tu ais soif ou non les PMOM te régaleront !",
         "author":"Un illuminé",
         "selling":["Délirium Red", "Blanche de Namur", "Mojito sans alcool"]
       }
