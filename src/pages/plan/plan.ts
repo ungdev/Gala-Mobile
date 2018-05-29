@@ -689,10 +689,10 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Bar Amicale",
-        "description":"Vous retrouverez ici un bar organisé par le personnel de l'UTT",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon",
+        "name": "La Guinguette",
+        "description":"Personnels et enseignants se mettent en quatre ! Viens ici partager le pain, le fromage et la charcutaille, accompagnés de bons vins. ",
+        "quote": "Groove Marcel !",
+        "author":"",
         "selling":["Champagne", "Vin Blanc", "Vin rouge", "Vin rosé Estezargues", "Vin rosé autre",
          "Assiette de charcutrie", "Assiette de fromage"]
       }
