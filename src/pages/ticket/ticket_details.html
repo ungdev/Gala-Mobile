@@ -13,6 +13,7 @@
   </ion-card>
 
   <ion-list>
+    <ion-item>{{ticket.qrcode}}</ion-item>
     <ion-item *ngIf="hasFastPass()">Fast Pass</ion-item>
     <ion-item *ngIf="hasCashLess()">Cash Less</ion-item>
     <ion-item>{{ticket.price}}</ion-item>

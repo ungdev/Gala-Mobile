@@ -417,11 +417,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Ted's finger",
-        "description":"Restaurateur salé qui vend de la finger's food (nourriture à manger avec les doigts).",
-        "quote": "L'influence est une nourriture.",
-        "author":"Pierre Baillargeon",
-        "selling": ["Ted's box "]
+        "name": "Crêpe d'Elo",
+        "description":"Restaurateur sucré qui vend des crêpes.",
+        "quote": "C'est une fine couche de sarrazin saisie dessus dessous...",
+        "author":"Guide Utile du Bon UTTien",
+        "selling":["Crêpes au sucre", "Crêpes au nutella"]
       }
     },
     {
@@ -436,11 +436,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Crêpe d'Elo",
-        "description":"Restaurateur sucré qui vend des crêpes.",
-        "quote": "C'est une fine couche de sarrazin saisie dessus dessous...",
-        "author":"Guide Utile du Bon UTTien",
-        "selling":["Crêpes au sucre", "Crêpes au nutella"]
+        "name": "La Carte",
+        "description":"Restaurateur salé qui vends des buritos.",
+        "quote": "Des frites, des frites, des frites, des frites, des frites",
+        "author":"Les Tuches",
+        "selling": ["Frites", "Burger", "Burrito"]
       }
     },
     {
@@ -455,11 +455,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "Chez Sari",
-        "description":"Restaurateur salé qui vend des Kebabs.",
-        "quote": "Pourquoi avoir des abdos quand on peut avoir un kebab ?",
+        "name": "L'atelier Lahmacun",
+        "description":"Restaurateur vendant une spécialité turque, composée d'une pâte et de viande haché, agrémentée de crudité et de citron.",
+        "quote": "Pourquoi avoir des abdos quand on peut avoir un Lahmacun ?",
         "author":"Un prophète",
-        "selling":["Sandwich Kebab"]
+        "selling":["Lahmacun"]
       }
     },
     {
@@ -474,11 +474,11 @@ export class PlanPage {
         ]]
       },
       "properties": {
-        "name": "La Carte",
-        "description":"Restaurateur salé qui vends des buritos.",
-        "quote": "Des frites, des frites, des frites, des frites, des frites",
-        "author":"Les Tuches",
-        "selling": ["Frites", "Burger", "Burrito"]
+        "name": "Ted's finger",
+        "description":"Restaurateur salé qui vend de la finger's food (nourriture à manger avec les doigts).",
+        "quote": "L'influence est une nourriture.",
+        "author":"Pierre Baillargeon",
+        "selling": ["Ted's box "]
       }
     },
     {
