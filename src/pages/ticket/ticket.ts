@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+//import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AlertController } from 'ionic-angular';
 import { TicketDetailsPage } from './ticket_details'
 import { Storage } from '@ionic/storage';
@@ -15,7 +15,7 @@ export class TicketPage {
   public tickets: any;
 
 
-  constructor(private iab: InAppBrowser, public http: Http, 
+  constructor(/*private iab: InAppBrowser, */public http: Http, 
       private storage : Storage, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.tickets = []
     this.getDataFromMemory()
@@ -39,7 +39,7 @@ export class TicketPage {
   }
 
   goToBilleterie(){
-    this.iab.create('http://billetterie.gala.utt.fr', '_system', {});
+    //this.iab.create('http://billetterie.gala.utt.fr', '_system', {});
   }
 
   goToDetails(ticket:any){

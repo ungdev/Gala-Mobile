@@ -35,18 +35,18 @@ $app-direction: ltr;
 
 
 @font-face {
-  font-family: 'DIN';
+  font-family: 'Lemon';
   font-weight: 300;
   font-style: normal;
-  src: url('../assets/fonts/DIN Alternate Bold.otf');
+  src: url('../assets/fonts/LemonMilk.otf');
 }
 
 
 
-$bar: #300800;
+$bar: #492964;
 
 $colors: (
-  primary:    #730b02, 
+  primary:    #bc167c, 
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #fcf7f2,
@@ -54,11 +54,11 @@ $colors: (
   navbar:     $bar,
   white:      #ffffff,
   countdown: (
-    base: #300800,
+    base: #465c90,
     contrast: #fcf7f2
   ),
   header: (
-  	base: #240600,
+  	base: #572b66,
   	contrast: #fcf7f2
   	),
   arrow: (
@@ -67,9 +67,9 @@ $colors: (
     )
 );
 
-$background-color : #110302;
+$background-color : linear-gradient(black, green);
 $tabs-background : $bar;
-$list-background-color : #520e02;
+$list-background-color : #465c90;
 $refresher-icon-color : #fcf7f2;
 $tabs-tab-color-inactive : #ffffff;
 $tabs-ios-tab-color-inactive: $tabs-tab-color-inactive;
@@ -78,7 +78,7 @@ $tabs-tab-icon-color : $tabs-tab-color-inactive;
 $tabs-border-color : $tabs-tab-color-inactive;
 
 $item-ios-detail-push-color: color($colors, arrow);
-$font: "DIN";
+$font: "Lemon";
 //$font:"roboto";
 $font-family-md-base: $font;
 $font-family-ios-base: $font;

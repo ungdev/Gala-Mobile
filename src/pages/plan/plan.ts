@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import L from 'leaflet';
-import { Geolocation } from '@ionic-native/geolocation';
+//import { Geolocation } from '@ionic-native/geolocation';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class PlanPage {
     public geojson: any;
     public lastClicked: any;
 
-  constructor(public navCtrl: NavController, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController/*, private geolocation: Geolocation*/) {
     this.lastClicked = 0;
     this.roomData = {
       "name": "Plan Interactif",
@@ -850,14 +850,14 @@ export class PlanPage {
 
   calcCoordinates(){
     //console.log("getting coords")
-    this.geolocation.getCurrentPosition().then((resp) => {
+    /*this.geolocation.getCurrentPosition().then((resp) => {
             this.lat = resp.coords.latitude
             this.long = resp.coords.longitude
             this.alt = resp.coords.altitude
             //console.log("lat : " + this.lat + " long : " + this.long + " alt : " + this.alt)
       }).catch((error) => {
             //console.log('Error getting location', error);
-      });
+      });*/
   	this.x = -488116.608 * (-0.6039772381) * (this.lat - 48.267489);
   	this.y = 177399.3259 * (this.long - 4.063907);
     //console.log("(x, y) = " + this.x + ", " + this.y)

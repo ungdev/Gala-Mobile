@@ -1,31 +1,30 @@
 <ion-card>
-    <div *ngIf="!timerIsFinished">
-        <ion-grid text-center>
-            <ion-row color=secondary class="big">
-                <ion-col>{{days}}</ion-col>
-                <ion-col>{{hours}}</ion-col>
-                <ion-col>{{minutes}}</ion-col>
-                <ion-col>{{seconds}}</ion-col>
-            </ion-row>
-            <ion-row text-uppercase class="jhms">
-                <ion-col>jours</ion-col>
-                <ion-col>heures</ion-col>
-                <ion-col>minutes</ion-col>
-                <ion-col>secondes</ion-col>
-            </ion-row>
-            <ion-row>
-                {{lat}}
-            </ion-row>
-             <ion-row>
-               {{long}}
-            </ion-row>
-             <ion-row>
-                {{alt}}
-            </ion-row>
-        </ion-grid>
-    </div>
-    <div *ngIf="timerIsFinished">
-        <ion-label class="Finished">Le Gala est ouvert !</ion-label>
-    </div>
-</ion-card>  
- 
+  <div *ngIf="!timerIsFinished">
+    <ion-grid text-center>
+      <ion-row color="secondary" class="big">
+        <ion-col>{{ days }}</ion-col>
+        <ion-col>{{ hours }}</ion-col>
+        <ion-col>{{ minutes }}</ion-col>
+        <ion-col>{{ seconds }}</ion-col>
+      </ion-row>
+      <ion-row text-uppercase class="jhms">
+        <ion-col>jours</ion-col>
+        <ion-col>heures</ion-col>
+        <ion-col>minutes</ion-col>
+        <ion-col>secondes</ion-col>
+      </ion-row>
+      <ion-row>
+        {{ lat }}
+      </ion-row>
+      <ion-row>
+        {{ long }}
+      </ion-row>
+      <ion-row>
+        {{ alt }}
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="Finished">
+    <span *ngIf="timerIsFinished">Le Gala est ouvert !</span>
+  </div>
+</ion-card>
