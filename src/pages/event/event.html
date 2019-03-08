@@ -1,69 +1,86 @@
 <ion-header (swipe)="swipeEvent($event)">
   <ion-navbar color="navbar">
     <ion-title>
-    	<ion-icon name="star"></ion-icon>
-      	Evenements
+      <ion-icon name="star"></ion-icon>
+      Evenements
     </ion-title>
     <ion-buttons end>
       <button (click)="calendarClicked()" ion-button icon-only>
         <ion-icon class="calendarIcon" name="calendar" color="white"></ion-icon>
       </button>
     </ion-buttons>
-
   </ion-navbar>
-  <ion-segment [(ngModel)]="events" (ionChange)="ionSelect()" color="primary" no-padding>
-      <ion-segment-button value="music">
-        <ion-icon name="musical-notes"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="food">
-        <ion-icon name="pizza"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="bus">
-        <ion-icon name="bus"></ion-icon>
-      </ion-segment-button>
-    </ion-segment>
+  <ion-segment
+    [(ngModel)]="events"
+    (ionChange)="ionSelect()"
+    color="primary"
+    no-padding
+  >
+    <ion-segment-button value="music">
+      <ion-icon name="musical-notes"></ion-icon>
+    </ion-segment-button>
+    <!--
+    <ion-segment-button value="food">
+      <ion-icon name="pizza"></ion-icon>
+    </ion-segment-button>-->
+    <ion-segment-button value="bus">
+      <ion-icon name="bus"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content class="card-background-page" (swipe)="swipeEvent($event)">
   <ion-refresher (ionRefresh)="doRefresh($event)" class="refresh">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-	<div *ngIf="musicVisible">
+  <div *ngIf="musicVisible">
+    <ion-label class="evenements">Evenements</ion-label>
     <ion-buttons *ngIf="!isEmpty(fevents)">
-  	   <button *ngFor="let event of fevents" class="buttons" (click)="goToDetails(event);" no-padding>
+      <button
+        *ngFor="let event of fevents"
+        class="buttons"
+        (click)="goToDetails(event)"
+        no-padding
+      >
         <ion-card class="card">
-          <img class="defaultImage" src="assets/imgs/default.png"/>
-          <img class="card-image" src={{event.Img}}/>
-          <!--<img class="card-image" src="assets/imgs/fireworks.jpe"/>-->
-          <div class="card-title">{{event.Title}}</div>
-          <div class="card-subtitle">{{event.Room}}</div>
-          <div class="card-start">{{event.Start}}</div>
-          <ion-icon class="info-circle2" name="ios-information-circle-outline" [isActive]="false"></ion-icon>
-          <ion-icon class="info-circle" name="information-circle" [isActive]="true"></ion-icon>
+          <img class="defaultImage" src="assets/imgs/default.png" />
+          <img class="card-image" src="{{ event.image }}" />
+          <div class="card-title">{{ event.name }}</div>
+          <div class="card-subtitle">{{ event.place }}</div>
+          <div class="card-start">{{ event.start }}</div>
+          <ion-icon
+            class="info-circle2"
+            name="ios-information-circle-outline"
+            [isActive]="false"
+          ></ion-icon>
+          <ion-icon
+            class="info-circle"
+            name="information-circle"
+            [isActive]="true"
+          ></ion-icon>
         </ion-card>
       </button>
     </ion-buttons>
-	</div>
+  </div>
+  <div *ngIf="foodVisible">
+    <ion-list no-border text-wrap>
+      <ion-item>
+        20h - Ouverture des Foods Truck
+      </ion-item>
+      <ion-item>
+        2h - Fermeture des etages
+      </ion-item>
+      <ion-item>
+        3h - Arret de la vente d'alcool - Fermeture du Lounge
+        <!--<ion-icon name="beer" item-end></ion-icon>-->
+      </ion-item>
+      <ion-item>
+        4h30 - Fermeture des Foods Trucs
+      </ion-item>
+    </ion-list>
+  </div>
 
-	<div *ngIf="foodVisible">
-		<ion-list no-border text-wrap>
-	  	  <ion-item>
-	            20h - Ouverture des Foods Truck
-	      </ion-item>
-	      <ion-item>
-	            2h - Fermeture des étages
-	      </ion-item>
-	      <ion-item>
-	      		3h - Arrêt de la vente d'alcool - Fermeture du Lounge
-	      <!--<ion-icon name="beer" item-end></ion-icon>-->
-	      </ion-item>
-	      <ion-item>
-	            4h30 - Fermeture des Foods Trucs
-	      </ion-item>
-		</ion-list>
-	</div>
-
-	<div *ngIf="busVisible">
+  <div *ngIf="busVisible">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -72,17 +89,26 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-card class="navettetext">Aucune boisson ne sera tolérée dans les bus, et un comportement correct est exigé.</ion-card>
+          <ion-card class="navettetext"
+            >Plus d'informations prochainement</ion-card
+          >
+        </ion-col>
+      </ion-row>
+      <!--<ion-row>
+        <ion-col>
+          <ion-card class="navettetext"
+            >Avant 21h30, le service de transport regulier peut etre utilise,
+            moyennant le prix d’un ticket par personne.</ion-card
+          >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-card class="navettetext">Avant 21h30, le service de transport régulier peut être utilisé, moyennant le prix d’un ticket par personne.</ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-card class="navettetext">A partir de 21h30, une navette gratuite est mise en place entre le rond-point de Beurnonville (proche du Centre des Finances Publiques et du CNAM) et le parking de l’UTT.</ion-card>
+          <ion-card class="navettetext"
+            >A partir de 21h30, une navette gratuite est mise en place entre le
+            rond-point de Beurnonville (proche du Centre des Finances Publiques
+            et du CNAM) et le parking de l’UTT.</ion-card
+          >
         </ion-col>
       </ion-row>
       <ion-row>
@@ -175,9 +201,7 @@
             </ion-item>
           </ion-list>
         </ion-col>
-      </ion-row>
+      </ion-row>-->
     </ion-grid>
-	</div>
-
-
+  </div>
 </ion-content>

@@ -29,9 +29,9 @@ export class EventPage {
     private storage: Storage,
     /*private calendar : Calendar, */ private alertCtrl: AlertController
   ) {
-    this.path = 'https://api.gala.uttnetgroup.fr'
+    this.path = 'https://api.gala.uttnetgroup.fr/api/v1/'
     this.timeoutMS = 10000
-    this.fevents = {}
+    this.fevents = []
     this.storage.get('events').then(val => {
       this.fevents = val
     })
@@ -60,7 +60,7 @@ export class EventPage {
   }
 
   contactServeur() {
-    let encodedPath = encodeURI(this.path)
+    let encodedPath = encodeURI(this.path + 'events')
     this.http
       .get(encodedPath)
       .timeout(this.timeoutMS)
@@ -85,22 +85,8 @@ export class EventPage {
     this.storage.get('events').then(val => {
       this.fevents = val
     })
-    this.fevents = {}
+    this.fevents = []
   }
-
-  /*ionViewDidLoad() {
-  	  this.localNotifications.schedule({
-  	 		id: 3,
-  	    title: 'Test notification immédiate',
-  	    text: 'Salut cest média'
-	    });
-
-
-      this.localNotifications.schedule({
-        text: 'Notification délayé de 10s',
-        at: new Date(new Date().getTime() + 10000)
-      });
-  }*/
 
   calendarClicked() {
     /*if(!this.calendar.hasReadWritePermission()){

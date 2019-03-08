@@ -1,53 +1,57 @@
-page-event{
-	.card-background-page {
-
-  	ion-card {
+page-event {
+  .card-background-page {
+    ion-card {
       position: relative;
       text-align: center;
     }
-    .defaultImage{
+    .defaultImage {
       position: relative;
     }
-    .card-image{
+    .card-image {
       position: absolute;
       left: 0px;
       top: 0px;
     }
-    .buttons{
-    	width: 100%;
+    .buttons {
+      width: 100%;
       position: relative;
-      text-align: center;  
+      text-align: center;
     }
-    .card{
-      color: #110302;  
-      text-color: #110302;  
+    .card {
+      color: #110302;
+      text-color: #110302;
     }
-    .calendarIcon{
+    .calendarIcon {
       text-color: #ffffff;
       color: #ffffff;
     }
-    .calendarButton{
+    .calendarButton {
       text-color: #123456;
       color: #123456;
     }
 
-    .busTitle{
+    .busTitle {
       font-size: 0.8em;
       text-align: center;
     }
-    .colR{
+    .colR {
       text-align: right;
-      font-size: 1.0em;
+      font-size: 1em;
       color: #999999;
     }
-    .colL{
+    .colL {
       text-align: left;
-      font-size: 1.0em;
+      font-size: 1em;
       color: #999999;
     }
-    .Navettes{
+    .Navettes {
       font-size: 3.5em;
       text-align: center;
+    }
+    .evenements {
+      font-size: 3.5em;
+      text-align: center;
+      margin-top: 20px;
     }
     .card-title {
       font-size: 9.5vmin;
@@ -60,7 +64,7 @@ page-event{
     }
 
     .card-subtitle {
-      font-size: 7.0vmin;
+      font-size: 7vmin;
       position: absolute;
       text-align: center;
       top: 55%;
@@ -68,7 +72,7 @@ page-event{
       color: #ffffff;
     }
     .card-start {
-      font-size: 8.0vmin;
+      font-size: 8vmin;
       position: absolute;
       text-align: center;
       top: 75%;
@@ -90,17 +94,17 @@ page-event{
       color: #000000;
       text-color: #000000;
     }
-    .smaller{
+    .smaller {
       font-size: 15px;
-      color: #FFFFFF;
+      color: #ffffff;
     }
-    ion-list:not(:last-child){
-      border-bottom: 1px solid #E8E8E8;
+    ion-list:not(:last-child) {
+      border-bottom: 1px solid #e8e8e8;
     }
-    .refresh{
+    .refresh {
       color: #555555;
     }
-    .navettetext{
+    .navettetext {
       color: #ffffff;
       padding: 10px 10px 10px 10px;
     }

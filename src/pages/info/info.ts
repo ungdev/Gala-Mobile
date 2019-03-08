@@ -1,120 +1,143 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { GMapPage } from '../gmap/gmap';
-//import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { Platform } from 'ionic-angular';
+import { Component } from '@angular/core'
+import { NavController } from 'ionic-angular'
+import { Http } from '@angular/http'
+import { GMapPage } from '../gmap/gmap'
+import { Storage } from '@ionic/storage'
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
+import { Platform } from 'ionic-angular'
 
 @Component({
   selector: 'page-info',
   templateUrl: 'info.html'
 })
 export class InfoPage {
-  public isIOS: boolean;
-  public selection: any;
-  public infosVisible: boolean;
-  public artistVisible: boolean;
-  public partenaireVisible: boolean;
-  public width: number;
-  public height: number;
+  public isIOS: boolean
+  public selection: any
+  public infosVisible: boolean
+  public artistVisible: boolean
+  public partenaireVisible: boolean
+  public width: number
+  public height: number
+  public partners: any
+  private path: string
+  private timeoutMS: number
+  public isRefreshing
 
-
-  constructor(/*private iab: InAppBrowser, */public navCtrl: NavController, public plt: Platform) {
+  constructor(
+    private iab: InAppBrowser,
+    public navCtrl: NavController,
+    public http: Http,
+    private storage: Storage,
+    public plt: Platform
+  ) {
     this.isIOS = plt.is('ios')
 
-    this.selection = "info"
-    this.infosVisible = true;
-    this.artistVisible = false;
-    this.partenaireVisible = false;
+    this.selection = 'info'
+    this.infosVisible = true
+    this.artistVisible = false
+    this.partenaireVisible = false
     this.width = plt.width() - 35
     this.height = plt.height() - 200
+    this.path = 'https://api.gala.uttnetgroup.fr/api/v1/'
+    this.timeoutMS = 10000
+    this.partners = []
+    this.storage.get('partners').then(val => {
+      this.partners = val
+    })
+    this.contactServeur()
+    this.isRefreshing = false
   }
 
-  click(){
-  	this.navCtrl.push(GMapPage)
-  }
-
-  swipeEvent(event){
-    if(event.direction == 2){
-      this.navCtrl.parent.select(2);
+  doRefresh(refresher) {
+    if (this.isRefreshing) {
+      return
     }
-    if(event.direction == 4){
-      this.navCtrl.parent.select(0);
+
+    this.isRefreshing = true
+
+    this.contactServeur()
+    refresher.complete()
+    this.isRefreshing = false
+  }
+
+  contactServeur() {
+    let encodedPath = encodeURI(this.path + 'partners')
+    this.http
+      .get(encodedPath)
+      .timeout(this.timeoutMS)
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          if (!data.hasOwnProperty('error')) {
+            this.partners = data
+            this.storage.remove('partners')
+            this.storage.set('partners', data)
+          } else {
+            this.getDataFromMemory()
+          }
+        },
+        err => {
+          this.getDataFromMemory()
+        }
+      )
+  }
+
+  getDataFromMemory() {
+    this.storage.get('partners').then(val => {
+      this.partners = val
+    })
+    this.partners = []
+  }
+
+  click() {
+    this.navCtrl.push(GMapPage)
+  }
+
+  isEmpty(obj) {
+    if (typeof obj === 'object' && obj !== null) {
+      if (Object.keys(obj).length === 0) return true
+    }
+    return false
+  }
+
+  swipeEvent(event) {
+    if (event.direction == 2) {
+      this.navCtrl.parent.select(2)
+    }
+    if (event.direction == 4) {
+      this.navCtrl.parent.select(0)
     }
   }
 
-  showInfos(){
+  showInfos() {
     this.infosVisible = true
     this.artistVisible = false
     this.partenaireVisible = false
   }
-  showArtist(){
+  showArtist() {
     this.infosVisible = false
     this.artistVisible = true
     this.partenaireVisible = false
   }
-  showPartenaire(){
+  showPartenaire() {
     this.infosVisible = false
     this.artistVisible = false
     this.partenaireVisible = true
   }
-  ionSelect(){
-    if(this.selection == "info"){
+  ionSelect() {
+    if (this.selection == 'info') {
       this.showInfos()
-    }
-    else if(this.selection == "artists"){
+    } else if (this.selection == 'artists') {
       this.showArtist()
-    }
-    else{
+    } else {
       this.showPartenaire()
     }
   }
+  mailTo(email) {
+    window.open(`mailto:${email}`, '_system')
+  }
 
-  allysonLink(){
-    //this.iab.create('http://ae-allyson.com', '_system', {});
-  }
-  amnestyLink(){
-    //this.iab.create('https://www.amnesty.fr', '_system', {});
-  }
-  nrjLink(){
-    //this.iab.create('http://www.nrj.fr', '_system', {});
-  }
-  socotecLink(){
-    //this.iab.create('http://www.socotec.fr', '_system', {});
-  }
-  festilightLink(){
-    //this.iab.create('http://www.festilight.com', '_system', {});
-  }
-  bdeLink(){
-    //this.iab.create('https://www.facebook.com/bde.utt/', '_system', {});
-  }
-  k2aLink(){
-    //this.iab.create('https://www.k2a-club.com', '_system', {});
-  }
-  mgelLink(){
-    //this.iab.create('https://www.mgel.fr', '_system', {});
-  }
-  rgLink(){
-    //this.iab.create('https://www.facebook.com/rivegauchecafe/?rf=125308984192319', '_system', {});
-  }
-  premautoLink(){
-    //this.iab.create('http://www.premiumautomobiles-troyes.com', '_system', {});
-  }
-  socgeneraleLink(){
-    //this.iab.create('https://www.societegenerale.fr', '_system', {});
-  }
-  teklissLink(){
-    //this.iab.create('http://www.tekliss.com', '_system', {});
-  }
-  uttLink(){
-   // this.iab.create('http://www.utt.fr/fr/index.html', '_system', {});
-  }
-  laserLink(){
-    //this.iab.create('http://www.lasergame-evolution.com/fr/14/Troyes/', '_system', {});
-  }
-  mercureLink(){
-    //this.iab.create('https://mercure.accorhotels.com/fr/france/index.shtml', '_system', {});
-  }
-  estLink(){
-    //this.iab.create('https://culturegrandest.fr/', '_system', {});
+  goToPartner(partner) {
+    this.iab.create(partner.url, '_system', {});
   }
 }

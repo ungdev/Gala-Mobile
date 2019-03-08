@@ -32,9 +32,9 @@
     <ion-segment-button value="info">
       <ion-icon name="information-circle"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="artists" *ngIf="!isIOS">
+    <!--<ion-segment-button value="artists" *ngIf="!isIOS">
       <ion-icon name="musical-notes"></ion-icon>
-    </ion-segment-button>
+    </ion-segment-button>-->
     <ion-segment-button value="partenaires">
       <ion-icon name="briefcase"></ion-icon>
     </ion-segment-button>
@@ -42,6 +42,9 @@
 </ion-header>
 
 <ion-content padding (swipe)="swipeEvent($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)" class="refresh">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div *ngIf="infosVisible">
     <ion-list text-wrap>
       <ion-list-header color="header">
@@ -53,7 +56,7 @@
       </ion-item>
       <ion-item>
         <ion-icon name="bowtie" item-start></ion-icon>
-        Tenue de soirée obligatoire
+        Tenue de soiree obligatoire
       </ion-item>
       <ion-item>
         <ion-icon name="beer" item-start></ion-icon>
@@ -77,16 +80,16 @@
         2 Juin 2018 - 20h
       </ion-item>
       <ion-list-header color="header">
-        Entrée du Gala
+        Entree du Gala
       </ion-list-header>
       <ion-item>
-        Ouverture à 20h
+        Ouverture a 20h
       </ion-item>
       <ion-item class="small">
         Fermeture temporaire de 23h30 a 00h15
       </ion-item>
       <ion-item>
-        Fermeture de l'entrée a 1h30
+        Fermeture de l'entree a 1h30
       </ion-item>
       <ion-item>
         Baisse du niveau sonore a 4h
@@ -94,13 +97,13 @@
       <ion-list-header color="header">
         Nous contacter
       </ion-list-header>
-      <ion-item>
+      <ion-item (click)="mailTo('gala@utt.fr')">
         <ion-icon name="mail" item-start></ion-icon>
         gala@utt.fr
       </ion-item>
-      <ion-item>
+      <ion-item (click)="mailTo('ung@utt.fr')">
         <ion-icon name="settings" item-start></ion-icon>
-        Problèmes techniques : ung@utt.fr
+        Problemes techniques : ung@utt.fr
       </ion-item>
     </ion-list>
   </div>
@@ -115,54 +118,14 @@
     ></iframe>
   </div>
   <div *ngIf="partenaireVisible">
-    <ion-buttons class="buttons">
-      <button (click)="bdeLink()" no-padding>
-        <img src="assets/imgs/partenaires/bde.jpg" />
-      </button>
-      <button (click)="uttLink()" no-padding>
-        <img src="assets/imgs/partenaires/utt.jpg" />
-      </button>
-      <button (click)="k2aLink()" no-padding>
-        <img src="assets/imgs/partenaires/k2a.png" />
-      </button>
-      <button (click)="rgLink()" no-padding>
-        <img src="assets/imgs/partenaires/rg.jpg" />
-      </button>
-      <button (click)="amnestyLink()" no-padding>
-        <img src="assets/imgs/partenaires/amnesty.png" />
-      </button>
-      <button (click)="nrjLink()" no-padding>
-        <img src="assets/imgs/partenaires/nrj.jpg" />
-      </button>
-      <button (click)="teklissLink()" no-padding>
-        <img src="assets/imgs/partenaires/tekliss.jpg" />
-      </button>
-      <button (click)="socgeneraleLink()" no-padding>
-        <img src="assets/imgs/partenaires/socgenerale.png" />
-      </button>
-      <button (click)="premautoLink()" no-padding>
-        <img src="assets/imgs/partenaires/premauto.jpg" />
-      </button>
-      <button (click)="festilightLink()" no-padding>
-        <img src="assets/imgs/partenaires/festilight.png" />
-      </button>
-      <button (click)="socotecLink()" no-padding>
-        <img src="assets/imgs/partenaires/socotec.jpg" />
-      </button>
-      <button (click)="mgelLink()" no-padding>
-        <img src="assets/imgs/partenaires/mgel.jpg" />
-      </button>
-      <button (click)="allysonLink()" no-padding>
-        <img src="assets/imgs/partenaires/allyson.png" />
-      </button>
-      <button (click)="laserLink()" no-padding>
-        <img src="assets/imgs/partenaires/lasergame.jpg" />
-      </button>
-      <button (click)="estLink()" no-padding>
-        <img src="assets/imgs/partenaires/est.jpg" />
-      </button>
-      <button (click)="mercureLink()" no-padding>
-        <img src="assets/imgs/partenaires/mercure.jpeg" />
+    <ion-buttons *ngIf="!isEmpty(partners)">
+      <button
+        *ngFor="let partner of partners"
+        class="buttons"
+        (click)="goToPartner(partner)"
+        no-padding
+      >
+        <img src="{{ partner.image }}" />
       </button>
     </ion-buttons>
   </div>

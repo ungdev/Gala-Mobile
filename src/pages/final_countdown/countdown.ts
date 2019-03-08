@@ -14,9 +14,6 @@ export class CountDownComponent {
     public minutes;
     public seconds;
     public distance;
-    public lat;
-    public long;
-    public alt;
     public timerIsFinished;
 
     constructor() {
@@ -28,7 +25,7 @@ export class CountDownComponent {
 
     calcRemainigTime(){
         var now = new Date().getTime()
-        var date_gala = new Date("Jun 2, 2018 20:00:00").getTime()
+        var date_gala = new Date("May 18, 2019 20:00:00").getTime()
         //var date_gala = new Date("Mar 27, 2018 19:51:00").getTime()
         this.distance = date_gala - now
 
