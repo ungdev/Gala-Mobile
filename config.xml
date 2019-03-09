@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="fr.uttnetgroup.gala" version="0.4.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Gala UTT</name>
+<widget id="fr.uttnetgroup.gala" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Gala-UTT</name>
     <description>Application pour le Gala de l'UTT</description>
     <author email="arnaud.dufour@utt.fr" href="gala.utt.fr">Arnaud Dufour pour la Team Gala</author>
     <content src="index.html" />
@@ -98,7 +98,8 @@
     </edit-config>
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="com.telerik.plugins.nativepagetransitions" spec="0.6.5" />
+    <plugin name="onesignal-cordova-plugin" spec="2.4.6" />
     <engine name="browser" spec="^6.0.0" />
-    <engine name="ios" spec="^5.0.0" />
     <engine name="android" spec="^8.0.0" />
+    <engine name="ios" spec="4.5.5" />
 </widget>

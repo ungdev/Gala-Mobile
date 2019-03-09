@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
 
 import { InfoPage } from '../pages/info/info'
+import { OneSignal } from '@ionic-native/onesignal'
 import { PlanPage } from '../pages/plan/plan'
 import { TicketPage } from '../pages/ticket/ticket'
 import { HomePage } from '../pages/home/home'
@@ -69,6 +70,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2'
     InAppBrowser,
     //GoogleMaps,
     SplashScreen,
+    OneSignal,
     NativePageTransitions,
     //Calendar,
     { provide: ErrorHandler, useClass: IonicErrorHandler }

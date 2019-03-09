@@ -11,7 +11,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
 export class HomePage {
   @ViewChild(CountDownComponent) countdown: CountDownComponent
 
-  appName = 'Gala UTT'
+  appName = 'Gala-UTT'
   public date
 
   constructor(
