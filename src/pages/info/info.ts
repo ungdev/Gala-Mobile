@@ -14,7 +14,7 @@ export class InfoPage {
   public isIOS: boolean
   public selection: any
   public infosVisible: boolean
-  public artistVisible: boolean
+  public busVisible: boolean
   public partenaireVisible: boolean
   public width: number
   public height: number
@@ -34,7 +34,7 @@ export class InfoPage {
 
     this.selection = 'info'
     this.infosVisible = true
-    this.artistVisible = false
+    this.busVisible = false
     this.partenaireVisible = false
     this.width = plt.width() - 35
     this.height = plt.height() - 200
@@ -111,24 +111,24 @@ export class InfoPage {
 
   showInfos() {
     this.infosVisible = true
-    this.artistVisible = false
-    this.partenaireVisible = false
-  }
-  showArtist() {
-    this.infosVisible = false
-    this.artistVisible = true
+    this.busVisible = false
     this.partenaireVisible = false
   }
   showPartenaire() {
     this.infosVisible = false
-    this.artistVisible = false
+    this.busVisible = false
     this.partenaireVisible = true
+  }
+  showBus() {
+    this.infosVisible = false
+    this.busVisible = true
+    this.partenaireVisible = false
   }
   ionSelect() {
     if (this.selection == 'info') {
       this.showInfos()
-    } else if (this.selection == 'artists') {
-      this.showArtist()
+    } else if (this.selection == 'bus') {
+      this.showBus()
     } else {
       this.showPartenaire()
     }

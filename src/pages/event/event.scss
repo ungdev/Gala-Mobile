@@ -11,6 +11,7 @@ page-event {
       position: absolute;
       left: 0px;
       top: 0px;
+      height: 100%;
     }
     .buttons {
       width: 100%;
@@ -19,14 +20,13 @@ page-event {
     }
     .card {
       color: #110302;
-      text-color: #110302;
+      margin: 0;
+      width: 100%;
     }
     .calendarIcon {
-      text-color: #ffffff;
       color: #ffffff;
     }
     .calendarButton {
-      text-color: #123456;
       color: #123456;
     }
 
@@ -92,7 +92,6 @@ page-event {
       top: 80%;
       width: 85%;
       color: #000000;
-      text-color: #000000;
     }
     .smaller {
       font-size: 15px;
@@ -107,6 +106,33 @@ page-event {
     .navettetext {
       color: #ffffff;
       padding: 10px 10px 10px 10px;
+    }
+    .event-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .events-buttons {
+      margin-top: 20px;
+      max-width: 300px;
+    }
+  }
+  @media screen and (min-width: 300px) {
+    .card-title {
+      font-size: 35px !important;
+    }
+    .card-start {
+      font-size: 22px !important;
+    }
+    .card-subtitle {
+      font-size: 20px !important;
+    }
+    .info-circle {
+      font-size: 25px !important;
+    }
+    .info-circle2 {
+      font-size: 25px !important;
     }
   }
 }

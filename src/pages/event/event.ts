@@ -5,8 +5,7 @@ import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/timeout'
 import { Storage } from '@ionic/storage'
-//import { Calendar } from '@ionic-native/calendar';
-import { AlertController } from 'ionic-angular'
+import moment from 'moment'
 
 @Component({
   selector: 'page-event',
@@ -14,10 +13,6 @@ import { AlertController } from 'ionic-angular'
 })
 export class EventPage {
   public spectacle: string
-  public events: any
-  public musicVisible: boolean
-  public foodVisible: boolean
-  public busVisible: boolean
   public fevents: any
   public path: string
   public timeoutMS: number
@@ -26,8 +21,7 @@ export class EventPage {
   constructor(
     public navCtrl: NavController,
     public http: Http,
-    private storage: Storage,
-    /*private calendar : Calendar, */ private alertCtrl: AlertController
+    private storage: Storage
   ) {
     this.path = 'https://api.gala.uttnetgroup.fr/api/v1/'
     this.timeoutMS = 10000
@@ -36,8 +30,6 @@ export class EventPage {
       this.fevents = val
     })
     this.contactServeur()
-    this.events = 'music'
-    this.showMusic()
     this.isRefreshing = false
   }
 
@@ -68,7 +60,13 @@ export class EventPage {
       .subscribe(
         data => {
           if (!data.hasOwnProperty('error')) {
-            this.fevents = data
+            this.fevents = data.map(event => {
+              return {
+                ...event,
+                start: moment(event.start).format('HH[h]'),
+                end: moment(event.end).format('HH[h]')
+              }
+            })
             this.storage.remove('events')
             this.storage.set('events', data)
           } else {
@@ -88,46 +86,6 @@ export class EventPage {
     this.fevents = []
   }
 
-  calendarClicked() {
-    /*if(!this.calendar.hasReadWritePermission()){
-      this.calendar.requestReadWritePermission().then(
-        (msg) => { console.log(msg); },
-        (err) => { console.log(err); });
-    }
-    else{
-      this.confirmCalendar()
-    }*/
-  }
-
-  confirmCalendar() {
-    let alert = this.alertCtrl.create({
-      title: 'Calendrier',
-      message:
-        'Voulez-vous ajouter les événements du Gala à votre calendrier ?',
-      buttons: [
-        {
-          text: 'Non',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked')
-          }
-        },
-        {
-          text: 'Ok !',
-          handler: () => {
-            var dateStart = new Date('Jun 2, 2018 20:00:00')
-            var dateEnd = new Date('Jun 3, 2018 01:00:00')
-            /*this.calendar.createEvent("Ouverture du Gala UTT", "12 rue Marie Curie 10000 Troyes", 
-                "N'oubliez pas votre costume !", dateStart, dateEnd)*/
-            //this.calendar.hasReadWritePermission()
-            //this.calendar.openCalendar(new Date("Jun 2, 2018 20:00:00"))
-          }
-        }
-      ]
-    })
-    alert.present()
-  }
-
   goToDetails(args: any) {
     this.navCtrl.push(EventDetailsPage, { arg: args })
   }
@@ -137,30 +95,5 @@ export class EventPage {
       if (Object.keys(obj).length === 0) return true
     }
     return false
-  }
-
-  showMusic() {
-    this.musicVisible = true
-    this.foodVisible = false
-    this.busVisible = false
-  }
-  showFood() {
-    this.musicVisible = false
-    this.foodVisible = true
-    this.busVisible = false
-  }
-  showBus() {
-    this.musicVisible = false
-    this.foodVisible = false
-    this.busVisible = true
-  }
-  ionSelect() {
-    if (this.events == 'music') {
-      this.showMusic()
-    } else if (this.events == 'food') {
-      this.showFood()
-    } else {
-      this.showBus()
-    }
   }
 }

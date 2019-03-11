@@ -19,14 +19,12 @@ import { CountDownComponent } from '../pages/final_countdown/countdown'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 
-//import { LocalNotifications } from '@ionic-native/local-notifications';
 //import { Geolocation } from '@ionic-native/geolocation';
 //import { GoogleMaps } from '@ionic-native/google-maps';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions'
 import { HttpModule } from '@angular/http'
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
 import { IonicStorageModule } from '@ionic/storage'
-//import { Calendar } from '@ionic-native/calendar';
 import { NgxQRCodeModule } from 'ngx-qrcode2'
 
 @NgModule({
@@ -72,7 +70,6 @@ import { NgxQRCodeModule } from 'ngx-qrcode2'
     SplashScreen,
     OneSignal,
     NativePageTransitions,
-    //Calendar,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
