@@ -1,20 +1,13 @@
 page-info {
-	
-	.big{
-		font-size: 16px;
-		color: #fff;
-		background-color: #242424;
-	}
-	.small{
-		font-size: 16px
-	}
-	.buttons{
-		display: block;
-    	margin: 0 auto;
-    	max-width: 300px;
-    	width: 100%;
-	}
-  ion-list-header:not(:first-child){
+  .big {
+    font-size: 16px;
+    color: #fff;
+    background-color: #242424;
+  }
+  .small {
+    font-size: 16px;
+  }
+  ion-list-header:not(:first-child) {
     margin-top: 10px;
   }
   ion-list-header > .item-inner {
@@ -26,4 +19,137 @@ page-info {
     padding: 10px 10px 10px 10px;
   }
 
+  .partners {
+    background-color: rgba(255, 255, 255, 0.3);
+    ion-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .buttons {
+      margin: 10px;
+      background-color: transparent;
+    }
+  }
+  .spotify-container {
+    display: flex;
+    justify-content: center;
+  }
+  .artist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+    .defaultImage {
+      position: relative;
+    }
+    .card-image {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+    }
+    .buttons {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      margin: 10px;
+    }
+    .card {
+      color: #110302;
+      margin: 0;
+      width: 100%;
+    }
+    .calendarIcon {
+      color: #ffffff;
+    }
+    .calendarButton {
+      color: #123456;
+    }
+
+    .artists {
+      font-size: 3.5em;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .card-title {
+      font-size: 7.0vmin;
+      position: absolute;
+      text-align: center;
+      top: 60%;
+      width: 100%;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(87, 43, 102, 0.3);
+      padding: 10;
+    }
+
+    .card-subtitle {
+      font-size: 7vmin;
+      position: absolute;
+      text-align: center;
+      top: 55%;
+      width: 100%;
+      color: #ffffff;
+    }
+    .card-start {
+      font-size: 8vmin;
+      position: absolute;
+      text-align: center;
+      top: 75%;
+      width: 100%;
+      color: #ffffff;
+    }
+    .info-circle {
+      font-size: 8.5vmin;
+      position: absolute;
+      top: 80%;
+      width: 85%;
+      color: #ffffff;
+    }
+    .info-circle2 {
+      font-size: 8.5vmin;
+      position: absolute;
+      top: 80%;
+      width: 85%;
+      color: #000000;
+    }
+    .smaller {
+      font-size: 15px;
+      color: #ffffff;
+    }
+    ion-list:not(:last-child) {
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .refresh {
+      color: #555555;
+    }
+    .artists-buttons {
+      margin-top: 20px;
+      max-width: 500px;
+      width: 90%;
+    }
+  }
+
+  @media screen and (min-width: 300px) {
+    .card-title {
+      font-size: 26px !important;
+    }
+    .card-start {
+      font-size: 22px !important;
+    }
+    .card-subtitle {
+      font-size: 20px !important;
+    }
+    .info-circle {
+      font-size: 25px !important;
+    }
+    .info-circle2 {
+      font-size: 25px !important;
+    }
+  }
 }

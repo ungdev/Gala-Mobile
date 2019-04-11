@@ -1,10 +1,9 @@
 import { Component } from '@angular/core'
 
 import { InfoPage } from '../info/info'
-//import { PlanPage } from '../plan/plan'
+import { PlanPage } from '../plan/plan'
 import { HomePage } from '../home/home'
 import { EventPage } from '../event/event'
-//import { TicketPage } from '../ticket/ticket'
 import {
   NativePageTransitions,
   NativeTransitionOptions
@@ -16,9 +15,8 @@ import {
 export class TabsPage {
   tab1Root = HomePage
   tab2Root = InfoPage
-  //tab3Root = TicketPage
   tab3Root = EventPage
-  //tab5Root = PlanPage
+  tab4Root = PlanPage
   loaded: boolean = false
   tabIndex: number = 0
 

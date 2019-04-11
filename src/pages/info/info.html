@@ -23,6 +23,22 @@
       </ion-title>
     </ion-navbar>
   </div>
+  <div *ngIf="artistVisible">
+    <ion-navbar color="navbar">
+      <ion-title>
+        <ion-icon name="musical-notes"></ion-icon>
+        Artistes
+      </ion-title>
+    </ion-navbar>
+  </div>
+  <div *ngIf="spotifyVisible">
+    <ion-navbar color="navbar">
+      <ion-title>
+        <ion-icon name="musical-notes"></ion-icon>
+        Playlist Spotify
+      </ion-title>
+    </ion-navbar>
+  </div>
   <ion-segment
     [(ngModel)]="selection"
     (ionChange)="ionSelect()"
@@ -32,9 +48,12 @@
     <ion-segment-button value="info">
       <ion-icon name="information-circle"></ion-icon>
     </ion-segment-button>
-    <!--<ion-segment-button value="artists" *ngIf="!isIOS">
+    <ion-segment-button value="artists">
       <ion-icon name="musical-notes"></ion-icon>
-    </ion-segment-button>-->
+    </ion-segment-button>
+    <ion-segment-button value="spotify">
+      <ion-icon name="play"></ion-icon>
+    </ion-segment-button>
     <ion-segment-button value="bus">
       <ion-icon name="bus"></ion-icon>
     </ion-segment-button>
@@ -80,7 +99,7 @@
       </ion-list-header>
       <ion-item>
         <ion-icon name="calendar" item-start></ion-icon>
-        2 Juin 2018 - 20h
+        18 Mai 2019 - 20h
       </ion-item>
       <ion-list-header color="header">
         Entree du Gala
@@ -88,14 +107,22 @@
       <ion-item>
         Ouverture a 20h
       </ion-item>
-      <ion-item class="small">
-        Fermeture temporaire de 23h30 a 00h15
-      </ion-item>
       <ion-item>
-        Fermeture de l'entree a 1h30
+        Fermeture de l'entree a 2h00
       </ion-item>
       <ion-item>
         Baisse du niveau sonore a 4h
+      </ion-item>
+      <ion-list-header color="header">
+        Privacy Policy / Politique de confidentialite
+      </ion-list-header>
+      <ion-item (click)="goTo('https://gala.utt.fr/confidentialite')">
+        <ion-icon name="lock" item-start></ion-icon>
+        See the privacy policy
+      </ion-item>
+      <ion-item (click)="goTo('https://gala.utt.fr/confidentialite')">
+        <ion-icon name="lock" item-start></ion-icon>
+        Voir la politique de confidentialite
       </ion-item>
       <ion-list-header color="header">
         Nous contacter
@@ -110,30 +137,48 @@
       </ion-item>
     </ion-list>
   </div>
-  <!--<div *ngIf="artistVisible">
+  <div *ngIf="artistVisible" class="artist-container">
+    <ion-buttons *ngIf="!isEmpty(artists)" class="artists-buttons">
+      <button
+        *ngFor="let artist of artists"
+        class="buttons"
+        (click)="goToArtist(artist)"
+        no-padding
+      >
+        <ion-card class="card">
+          <img class="defaultImage" src="../../assets/imgs/default.png" />
+          <img class="card-image" src="{{ artist.image }}" />
+          <div class="card-title">{{ artist.name }}</div>
+          <ion-icon
+            class="info-circle2"
+            name="ios-information-circle-outline"
+            [isActive]="false"
+          ></ion-icon>
+          <ion-icon
+            class="info-circle"
+            name="information-circle"
+            [isActive]="true"
+          ></ion-icon>
+        </ion-card>
+      </button>
+    </ion-buttons>
+  </div>
+  <div *ngIf="spotifyVisible" class="spotify-container">
     <iframe
-      src="https://open.spotify.com/embed?uri=spotify:user:1175448776:playlist:5po57Yq7Uh5tjcL7SnjywI"
-      width="{{ width }}"
-      height="{{ height }}"
+      src="https://open.spotify.com/embed/user/3b9pihxhxz769uzyd30qsown1/playlist/5Hi0XcOVx1nYwmrmJyoiSK"
+      width="{{spotifyWidth}}"
+      height="{{spotifyHeight}}"
       frameborder="0"
-      allowtransparency="false"
+      allowtransparency="true"
       allow="encrypted-media"
     ></iframe>
-  </div>-->
+  </div>
   <div *ngIf="busVisible">
     <ion-grid>
       <ion-row>
-        <ion-col>
-        </ion-col>
+        <ion-col> </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-          <ion-card class="navettetext"
-            >Plus d'informations prochainement</ion-card
-          >
-        </ion-col>
-      </ion-row>
-      <!--<ion-row>
         <ion-col>
           <ion-card class="navettetext"
             >Avant 21h30, le service de transport regulier peut etre utilise,
@@ -240,10 +285,10 @@
             </ion-item>
           </ion-list>
         </ion-col>
-      </ion-row>-->
+      </ion-row>
     </ion-grid>
   </div>
-  <div *ngIf="partenaireVisible">
+  <div *ngIf="partenaireVisible" class="partners">
     <ion-buttons *ngIf="!isEmpty(partners)">
       <button
         *ngFor="let partner of partners"
@@ -251,7 +296,7 @@
         (click)="goToPartner(partner)"
         no-padding
       >
-        <img src="{{ partner.image }}" />
+        <img src="{{ partner.image }}" alt="../../assets/imgs/default.png" />
       </button>
     </ion-buttons>
   </div>
