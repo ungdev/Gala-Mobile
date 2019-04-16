@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/timeout'
 import { Storage } from '@ionic/storage'
 import moment from 'moment'
+import removeAccents from 'remove-accents'
 
 @Component({
   selector: 'page-event',
@@ -25,10 +26,7 @@ export class EventPage {
   ) {
     this.path = 'https://api.gala.uttnetgroup.fr/api/v1/'
     this.timeoutMS = 10000
-    this.fevents = []
-    this.storage.get('events').then(val => {
-      this.fevents = val
-    })
+    this.getDataFromMemory()
     this.contactServeur()
     this.isRefreshing = false
   }
@@ -64,11 +62,21 @@ export class EventPage {
               return {
                 ...event,
                 start: moment(event.start).format('HH[h]'),
-                end: moment(event.end).format('HH[h]')
+                end: moment(event.end).format('HH[h]'),
+                image:
+                  this.path + event.image.substr(1, event.image.length - 1),
+                place: removeAccents(event.place),
+                title: removeAccents(event.name),
+                description: removeAccents(event.description)
+              }
+            })
+            this.fevents = this.fevents.map(event => {
+              return {
+                ...event
               }
             })
             this.storage.remove('events')
-            this.storage.set('events', data)
+            this.storage.set('events', this.fevents)
           } else {
             this.getDataFromMemory()
           }

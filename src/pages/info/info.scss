@@ -35,6 +35,26 @@ page-info {
     display: flex;
     justify-content: center;
   }
+  .spotify-container > div {
+    width: 100%;
+    position: relative;
+  }
+  .spotify-container > div > div {
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .spotify-container > div > div > ion-spinner {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .spotify-container > div > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .artist-container {
     display: flex;
     flex-direction: column;

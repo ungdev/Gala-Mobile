@@ -108,7 +108,7 @@
         Ouverture a 20h
       </ion-item>
       <ion-item>
-        Fermeture de l'entree a 2h00
+        Fermeture de l'entree a 1h00
       </ion-item>
       <ion-item>
         Baisse du niveau sonore a 4h
@@ -164,14 +164,17 @@
     </ion-buttons>
   </div>
   <div *ngIf="spotifyVisible" class="spotify-container">
-    <iframe
-      src="https://open.spotify.com/embed/user/3b9pihxhxz769uzyd30qsown1/playlist/5Hi0XcOVx1nYwmrmJyoiSK"
-      width="{{spotifyWidth}}"
-      height="{{spotifyHeight}}"
-      frameborder="0"
-      allowtransparency="true"
-      allow="encrypted-media"
-    ></iframe>
+    <div>
+      <div><ion-spinner color="primary"></ion-spinner></div>
+      <iframe
+        src="https://open.spotify.com/embed/user/3b9pihxhxz769uzyd30qsown1/playlist/5Hi0XcOVx1nYwmrmJyoiSK"
+        width="{{ spotifyWidth }}"
+        height="{{ spotifyHeight }}"
+        frameborder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+      ></iframe>
+    </div>
   </div>
   <div *ngIf="busVisible">
     <ion-grid>

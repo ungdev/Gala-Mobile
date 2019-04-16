@@ -1,21 +1,49 @@
 <ion-header>
   <ion-navbar color="navbar">
     <ion-title>
-      {{args.name}}
+      {{ args.name }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="details">
-  <img class="img" src={{args.image}}/>
-  <div class="title">{{args.name}}</div>
-  <div class="start">Debut a {{args.start}}</div>
-  <div class="end">Fin a {{args.end}}</div>
-  <div class="room">Lieu : {{args.place}}</div>
-  <ion-card class="card">
-    <ion-card-content class="text">
-      {{args.description}}
-    </ion-card-content>
-  </ion-card>
+  <div class="details-content">
+    <ion-card class="card">
+      <img class="defaultImage" src="assets/imgs/default.png" />
+      <img class="card-image" src="{{ args.image }}" />
+      <div class="card-title">{{ args.name }}</div>
+      <div class="card-subtitle">{{ args.place }}</div>
+      <div class="card-start">{{ args.start }}</div>
+    </ion-card>
+    <ion-card class="header-card">
+      <ion-card-content class="details-infos">
+        <div class="dates">Debut a {{ args.start }} - Fin a {{ args.end }}</div>
+        <div class="room">Lieu : {{ args.place }}</div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="card">
+      <ion-card-content class="text">
+        {{ args.description }}
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="card" *ngIf="partner">
+      <ion-card-content class="text"
+        >Partenaire de l'evenement :</ion-card-content
+      >
+      <ion-buttons>
+        <button class="buttons" (click)="goTo(partner.url)" no-padding>
+          <img src="{{ partner.image }}" alt="../../assets/imgs/default.png" />
+        </button>
+      </ion-buttons>
+    </ion-card>
 
+    <ion-card class="card" *ngIf="artist">
+      <ion-card-content class="text">Artiste de l'evenement :</ion-card-content>
+      <ion-buttons>
+        <button class="buttons" (click)="goTo(artist.link)" no-padding>
+          <img src="{{ artist.image }}" alt="../../assets/imgs/default.png" />
+        </button>
+      </ion-buttons>
+    </ion-card>
+  </div>
 </ion-content>
