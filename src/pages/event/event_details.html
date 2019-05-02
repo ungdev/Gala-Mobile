@@ -17,7 +17,7 @@
     </ion-card>
     <ion-card class="header-card">
       <ion-card-content class="details-infos">
-        <div class="dates">Debut a {{ args.start }} - Fin a {{ args.end }}</div>
+        <div class="dates">Début à {{ args.start }} - Fin à {{ args.end }}</div>
         <div class="room">Lieu : {{ args.place }}</div>
       </ion-card-content>
     </ion-card>
@@ -28,7 +28,7 @@
     </ion-card>
     <ion-card class="card" *ngIf="partner">
       <ion-card-content class="text"
-        >Partenaire de l'evenement :</ion-card-content
+        >Partenaire de l'évènement :</ion-card-content
       >
       <ion-buttons>
         <button class="buttons" (click)="goTo(partner.url)" no-padding>
@@ -38,7 +38,7 @@
     </ion-card>
 
     <ion-card class="card" *ngIf="artist">
-      <ion-card-content class="text">Artiste de l'evenement :</ion-card-content>
+      <ion-card-content class="text">Artiste de l'évènement :</ion-card-content>
       <ion-buttons>
         <button class="buttons" (click)="goTo(artist.link)" no-padding>
           <img src="{{ artist.image }}" alt="../../assets/imgs/default.png" />

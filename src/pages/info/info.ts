@@ -113,6 +113,10 @@ export class InfoPage {
                 ...a,
                 image: this.path + a.image.substr(1, a.image.length - 1)
               }
+            }).sort((a, b) => {
+              if(a.index > b.index) return 1
+              if(a.index < b.index) return -1
+              return 0
             })
             this.storage.remove('artists')
             this.storage.set('artists', this.artists)

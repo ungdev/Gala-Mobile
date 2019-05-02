@@ -19,7 +19,7 @@ import { CountDownComponent } from '../pages/final_countdown/countdown'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 
-//import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation/ngx'
 //import { GoogleMaps } from '@ionic-native/google-maps';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions'
 import { HttpModule } from '@angular/http'
@@ -64,7 +64,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2'
   providers: [
     StatusBar,
     //LocalNotifications,
-    // Geolocation,
+    Geolocation,
     InAppBrowser,
     //GoogleMaps,
     SplashScreen,

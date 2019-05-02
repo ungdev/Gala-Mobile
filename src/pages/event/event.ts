@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/timeout'
 import { Storage } from '@ionic/storage'
 import moment from 'moment'
-import removeAccents from 'remove-accents'
 
 @Component({
   selector: 'page-event',
@@ -65,9 +64,9 @@ export class EventPage {
                 end: moment(event.end).format('HH[h]'),
                 image:
                   this.path + event.image.substr(1, event.image.length - 1),
-                place: removeAccents(event.place),
-                title: removeAccents(event.name),
-                description: removeAccents(event.description)
+                place: event.place,
+                title: event.name,
+                description: event.description
               }
             })
             this.fevents = this.fevents.map(event => {
