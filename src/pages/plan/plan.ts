@@ -94,29 +94,30 @@ export class PlanPage {
       .catch(error => {
         console.log('Error getting location', error)
       })*/
-    this.x = -488116.608 * -0.6039772381 * (this.lat - 48.267489)
-    this.y = 177399.3259 * (this.long - 4.063907)
-    //console.log("(x, y) = " + this.x + ", " + this.y)
-    if (this.x < 0) this.x = 0
-    if (this.y < 0) this.y = 0
-    if (this.x > 1000) this.x = 1000
-    if (this.y > 1000) this.y = 1000
+    let watch = this.geolocation.watchPosition()
+    watch.subscribe(data => {
+      this.lat = data.coords.latitude
+      this.long = data.coords.longitude
+      this.alt = data.coords.altitude
+      console.log(
+        'lat : ' + this.lat + ' long : ' + this.long + ' alt : ' + this.alt
+      )
+      this.x = -488116.608 * -0.6039772381 * (this.lat - 48.267489)
+      this.y = 177399.3259 * (this.long - 4.063907)
+      console.log('(x, y) = ' + this.x + ', ' + this.y)
+      if (this.x < 0) this.x = 0
+      if (this.y < 0) this.y = 0
+      if (this.x > 1000) this.x = 1000
+      if (this.y > 1000) this.y = 1000
 
-    this.marker.setLatLng(L.latLng(this.x, this.y))
-  }
-
-  tick() {
-    setTimeout(() => {
-      this.calcCoordinates()
-      this.tick()
-    }, 1000)
+      this.marker.setLatLng(L.latLng(this.x, this.y))
+    })
   }
 
   load() {
     this.initCoordinates()
     this.loadmap()
     this.calcCoordinates()
-    this.tick()
   }
 
   initCoordinates() {
@@ -128,12 +129,12 @@ export class PlanPage {
   }
 
   loadmap() {
-    //var corner1 = L.latLng(0, 0),
-    //corner2 = L.latLng(3000, 3000),
-    //bounds = L.latLngBounds(corner1, corner2),
     var corner3 = L.latLng(0, 0),
       corner4 = L.latLng(1000, 1000),
-      bounds2 = L.latLngBounds(corner3, corner4)
+      bounds2 = L.latLngBounds(corner3, corner4),
+      corner1 = L.latLng(-300, -300),
+      corner2 = L.latLng(1300, 1300),
+      bounds = L.latLngBounds(corner1, corner2)
     this.map = L.map('map', {
       crs: L.CRS.Simple,
       minZoom: -1.4,
@@ -143,26 +144,19 @@ export class PlanPage {
       touchZoom: true,
       doubleClickZoom: true,
       dragging: true,
-      maxBounds: bounds2
+      maxBounds: bounds
     })
     L.imageOverlay('assets/imgs/map.png', bounds2).addTo(this.map)
     this.map.fitBounds(bounds2)
-    //L.marker([0, 0]).addTo(this.map);
     this.map.setView(new L.LatLng(420, 510))
 
     this.marker = L.marker([this.x, this.y])
     this.marker.addTo(this.map)
 
-    //L.marker([0, 0]).addTo(this.map);
-    //L.marker([0, 1000]).addTo(this.map);
-    //L.marker([1000, 1000]).addTo(this.map);
-    //L.marker([1000, 0]).addTo(this.map);
-    //console.log(rooms)
     this.geojson = L.geoJSON(this.room, {
       style: this.style,
       onEachFeature: (feature, layer) => this.onEachFeature(feature, layer)
     }).addTo(this.map)
-    //layer.addData(rooms)
   }
 
   onEachFeature(feature, layer) {
