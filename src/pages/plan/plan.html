@@ -8,16 +8,18 @@
 </ion-header>
 
 <ion-content>
-  <div id="map" style="width:100%; height:50%;"></div>
-
-  <ion-card (swipe)="swipeEvent($event)">
-    <ion-card-content>
-      <!--<div *ngIf="roomData.name != 'UNG'">-->
-      <div>
-        <ion-label text-wrap class="Title">{{ roomData.name }}</ion-label>
-        {{ roomData.description }}
-      </div>
-      <!--<div *ngIf="roomData.name == 'UNG'">
+  <div style="width: 100%; height: 50%; display: flex; justify-content: center;">
+    <div id="map" style="width: 100%; max-width: 500px; height:100%;"></div>
+  </div>
+  <div class="map-content">
+    <ion-card (swipe)="swipeEvent($event)">
+      <ion-card-content>
+        <!--<div *ngIf="roomData.name != 'UNG'">-->
+        <div>
+          <ion-label text-wrap class="Title">{{ roomData.name }}</ion-label>
+          {{ roomData.description }}
+        </div>
+        <!--<div *ngIf="roomData.name == 'UNG'">
         <ion-label text-wrap class="Title">Le Golden Nugget</ion-label>
         <div class="editor">
           <div>
@@ -56,29 +58,43 @@
           </div>
         </div>
       </div>-->
-    </ion-card-content>
-  </ion-card>
-  <div *ngIf="roomData.selling != null">
-    <ion-card (swipe)="swipeEvent($event)">
+      </ion-card-content>
+    </ion-card>
+    <div *ngIf="roomData.selling != null">
+      <ion-card (swipe)="swipeEvent($event)">
+        <ion-card-content>
+          <ion-label text-wrap class="selling"
+            >En vente sur cet espace :
+          </ion-label>
+          <ul>
+            <ion-label
+              text-wrap
+              *ngFor="let sel of roomData.selling"
+              class="selling"
+              ><li>- {{ sel }}</li></ion-label
+            >
+          </ul>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf="roomData.activity != null">
+      <ion-card (swipe)="swipeEvent($event)">
+        <ion-card-content>
+          <ion-label text-wrap class="selling"
+            >Retrouvez l'activité suivante sur cet espace :
+          </ion-label>
+          {{ roomData.activity }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-card
+      (swipe)="swipeEvent($event)"
+      *ngIf="roomData.quote != null && roomData.quote != ''"
+    >
       <ion-card-content>
-        <ion-label text-wrap class="selling"
-          >En vente sur cet espace :
-        </ion-label>
-        <ul>
-          <ion-label
-            text-wrap
-            *ngFor="let sel of roomData.selling"
-            class="selling"
-            ><li>- {{ sel }}</li></ion-label
-          >
-        </ul>
+        <ion-label text-wrap class="Quote">''{{ roomData.quote }}'' </ion-label>
+        <ion-label class="Author">{{ roomData.author }}</ion-label>
       </ion-card-content>
     </ion-card>
   </div>
-  <ion-card (swipe)="swipeEvent($event)" *ngIf="roomData.quote != null && roomData.quote != ''">
-    <ion-card-content>
-      <ion-label text-wrap class="Quote">''{{ roomData.quote }}'' </ion-label>
-      <ion-label class="Author">{{ roomData.author }}</ion-label>
-    </ion-card-content>
-  </ion-card>
 </ion-content>

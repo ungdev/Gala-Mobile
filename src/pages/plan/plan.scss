@@ -43,6 +43,18 @@ page-plan {
 	}
 
 	.indent {
-	  margin-left: 50px
-	}
+	  margin-left: 50px;
+  }
+
+  .map-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .map-content > * {
+    max-width: 500px;
+    width:100%;
+  }
 }

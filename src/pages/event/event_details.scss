@@ -30,7 +30,7 @@ page-event-details {
     font-size: 9.5vmin;
     position: absolute;
     text-align: center;
-    top: 20%;
+    top: 10%;
     width: 100%;
     font-weight: bold;
     color: #ffffff;
@@ -73,7 +73,7 @@ page-event-details {
 
   @media screen and (min-width: 300px) {
     .card-title {
-      font-size: 35px !important;
+      font-size: 28px !important;
     }
     .card-start {
       font-size: 22px !important;
