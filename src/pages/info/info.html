@@ -22,6 +22,8 @@
         Playlist Spotify
       </div>
     </ion-title>
+  </ion-navbar>
+  <ion-toolbar color="navbar">
     <ion-segment
       [(ngModel)]="selection"
       (ionChange)="ionSelect()"
@@ -44,7 +46,7 @@
         <ion-icon name="briefcase"></ion-icon>
       </ion-segment-button>
     </ion-segment>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding (swipe)="swipeEvent($event)">
