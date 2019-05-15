@@ -57,23 +57,24 @@ export class EventPage {
       .subscribe(
         data => {
           if (!data.hasOwnProperty('error')) {
-            this.fevents = data.map(event => {
-              return {
-                ...event,
-                start: moment(event.start).format('HH[h]'),
-                end: moment(event.end).format('HH[h]'),
-                image:
-                  this.path + event.image.substr(1, event.image.length - 1),
-                place: event.place,
-                title: event.name,
-                description: event.description
-              }
-            })
-            this.fevents = this.fevents.map(event => {
-              return {
-                ...event
-              }
-            })
+            this.fevents = data
+              .map(event => {
+                return {
+                  ...event,
+                  start: event.start,
+                  end: event.end,
+                  image:
+                    this.path + event.image.substr(1, event.image.length - 1),
+                  place: event.place,
+                  title: event.name,
+                  description: event.description
+                }
+              })
+              .sort((a, b) => {
+                if (moment(a.start).isBefore(b.start)) return -1
+                if (moment(a.start).isAfter(b.start)) return 1
+                return 0
+              })
             this.storage.remove('events')
             this.storage.set('events', this.fevents)
           } else {
@@ -84,6 +85,15 @@ export class EventPage {
           this.getDataFromMemory()
         }
       )
+  }
+
+  getStart(event) {
+    if(moment().isAfter(event.start)) return 'En ce moment'
+    return moment(event.start).format('HH[h]mm')
+  }
+
+  isOver(event) {
+    return moment().isAfter(event.end)
   }
 
   getDataFromMemory() {

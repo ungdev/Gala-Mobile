@@ -12,31 +12,33 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <div class="event-container">
-    <ion-buttons *ngIf="!isEmpty(fevents)" class='events-buttons'>
-      <button
-        *ngFor="let event of fevents"
-        class="buttons"
-        (click)="goToDetails(event)"
-        no-padding
-      >
-        <ion-card class="card">
-          <img class="defaultImage" src="assets/imgs/default.png" />
-          <img class="card-image" src="{{ event.image }}" />
-          <div class="card-title">{{ event.name }}</div>
-          <div class="card-subtitle">{{ event.place }}</div>
-          <div class="card-start">{{ event.start }}</div>
-          <ion-icon
-            class="info-circle2"
-            name="ios-information-circle-outline"
-            [isActive]="false"
-          ></ion-icon>
-          <ion-icon
-            class="info-circle"
-            name="information-circle"
-            [isActive]="true"
-          ></ion-icon>
-        </ion-card>
-      </button>
+    <ion-buttons *ngIf="!isEmpty(fevents)" class="events-buttons">
+      <ng-container *ngFor="let event of fevents">
+        <button
+          *ngIf="!isOver(event)"
+          class="buttons"
+          (click)="goToDetails(event)"
+          no-padding
+        >
+          <ion-card class="card">
+            <img class="defaultImage" src="assets/imgs/default.png" />
+            <img class="card-image" src="{{ event.image }}" />
+            <div class="card-title">{{ event.name }}</div>
+            <div class="card-subtitle">{{ event.place }}</div>
+            <div class="card-start">{{ getStart(event) }}</div>
+            <ion-icon
+              class="info-circle2"
+              name="ios-information-circle-outline"
+              [isActive]="false"
+            ></ion-icon>
+            <ion-icon
+              class="info-circle"
+              name="information-circle"
+              [isActive]="true"
+            ></ion-icon>
+          </ion-card>
+        </button>
+      </ng-container>
     </ion-buttons>
   </div>
 </ion-content>

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular'
 import { Storage } from '@ionic/storage'
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
 import { Http } from '@angular/http'
+import moment from 'moment'
 
 @Component({
   selector: 'page-event-details',
@@ -42,6 +43,15 @@ export class EventDetailsPage {
     if (!this.args.partnerId) return
     const partner = this.partners.find(p => p.id === this.args.partnerId)
     if (partner) this.partner = partner
+  }
+
+  getStart(event, change) {
+    if(change && moment().isAfter(event.start)) return 'En ce moment'
+    return moment(event.start).format('HH[h]mm')
+  }
+
+  getEnd(event) {
+    return moment(event.end).format('HH[h]mm')
   }
 
   contactServeur() {

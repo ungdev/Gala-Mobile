@@ -13,11 +13,11 @@
       <img class="card-image" src="{{ args.image }}" />
       <div class="card-title">{{ args.name }}</div>
       <div class="card-subtitle">{{ args.place }}</div>
-      <div class="card-start">{{ args.start }}</div>
+      <div class="card-start">{{ getStart(args, false) }}</div>
     </ion-card>
     <ion-card class="header-card">
       <ion-card-content class="details-infos">
-        <div class="dates">Début à {{ args.start }} - Fin à {{ args.end }}</div>
+        <div class="dates">Début à {{ getStart(args, true) }} - Fin à {{ getEnd(args) }}</div>
         <div class="room">Lieu : {{ args.place }}</div>
       </ion-card-content>
     </ion-card>
